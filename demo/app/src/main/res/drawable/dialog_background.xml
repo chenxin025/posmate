@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <solid android:color="@color/white" />
+
+    <corners
+        android:radius="5dip"
+        android:bottomLeftRadius="5dip"
+        android:bottomRightRadius="5dip"
+        android:topLeftRadius="5dip"
+        android:topRightRadius="5dip" />
+    <!-- 圆角的半径  也可以统一设置半径 android:radius="9dip" -->
+</shape>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="F:\chenxin\workspace\posmate\posmate1\app\build\intermediates\exploded-aar\posmate1\sdk\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="e3a82fe67b507af8589aebbc0c08b2904426631c">
+        <dex dex="F:\chenxin\workspace\posmate\posmate1\app\build\intermediates\pre-dexed\debug\posmate1-sdk-unspecified_681b23352b5afa4f0bae43477d8bd0f0a43d72bb.jar" />
+    </item>
+
+</items>
