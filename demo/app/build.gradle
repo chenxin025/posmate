@@ -42,5 +42,6 @@ dependencies {
     compile 'com.android.support:support-v4:24.1.1'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile files('libs/meSdk-2.0.5-SNAPSHOT.jar')
-    compile project(':sdk')
+	compile files('libs/mysdk.jar')
+    //compile project(':sdk')
 }

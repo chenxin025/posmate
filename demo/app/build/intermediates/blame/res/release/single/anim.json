@@ -4,6 +4,10 @@
         "source": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_fade_in.xml"
     },
     {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_fade_out.xml"
+    },
+    {
         "merged": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
         "source": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
@@ -12,8 +16,28 @@
         "source": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_popup_enter.xml"
     },
     {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
         "merged": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
         "source": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
         "merged": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
@@ -32,8 +56,24 @@
         "source": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
         "merged": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
         "source": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\anim\\abc_popup_enter.xml"
     },
     {
         "merged": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",

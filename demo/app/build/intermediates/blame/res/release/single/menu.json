@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\build\\intermediates\\res\\merged\\release\\menu\\main.xml",
+        "source": "C:\\Users\\john\\Desktop\\copy\\new\\posmate_android\\demo\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
         "merged": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\build\\intermediates\\res\\merged\\release\\menu\\main.xml",
         "source": "F:\\chenxin\\workspace\\posmate\\posmate1\\app\\src\\main\\res\\menu\\main.xml"
     }

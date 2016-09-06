@@ -13,7 +13,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="24"
             column="13"/>
     </issue>
@@ -30,7 +30,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="171"
             column="3"/>
     </issue>
@@ -47,7 +47,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="183"
             column="3"/>
     </issue>
@@ -64,7 +64,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="195"
             column="3"/>
     </issue>
@@ -81,7 +81,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="208"
             column="3"/>
     </issue>
@@ -98,7 +98,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="220"
             column="3"/>
     </issue>
@@ -115,7 +115,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="233"
             column="3"/>
     </issue>
@@ -132,7 +132,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="246"
             column="3"/>
     </issue>
@@ -149,7 +149,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="258"
             column="3"/>
     </issue>
@@ -166,7 +166,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="271"
             column="3"/>
     </issue>
@@ -183,7 +183,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="283"
             column="3"/>
     </issue>
@@ -200,7 +200,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="295"
             column="3"/>
     </issue>
@@ -217,7 +217,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="307"
             column="3"/>
     </issue>
@@ -234,7 +234,7 @@
         errorLine2="  ~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\Setting.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\Setting.java"
             line="319"
             column="3"/>
     </issue>
@@ -255,7 +255,7 @@ To fix this issue, set the `targetSdkVersion` to the highest available value. Th
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\AndroidManifest.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\AndroidManifest.xml"
             line="9"
             column="9"/>
     </issue>
@@ -276,7 +276,7 @@ To fix this issue, set the `targetSdkVersion` to the highest available value. Th
         errorLine2="        ~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\build.gradle"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\build.gradle"
             line="13"
             column="9"/>
     </issue>
@@ -296,7 +296,7 @@ If your activity is simply a parent class intended to be subclassed by other &qu
         errorLine1="public class DeviceActivity extends Activity {"
         errorLine2="             ~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\DeviceActivity.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\DeviceActivity.java"
             line="26"
             column="14"/>
     </issue>
@@ -314,7 +314,7 @@ Similarly, when *not* using the appcompat library, you should be using the `andr
         errorLine1="        android:showAsAction=&quot;always&quot;  "
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\menu\main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\menu\main.xml"
             line="5"
             column="9"/>
     </issue>
@@ -332,7 +332,7 @@ Similarly, when *not* using the appcompat library, you should be using the `andr
         errorLine1="     final View view = inflater.inflate(R.layout.dialog_iccard, null);"
         errorLine2="                                                                ~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\CardReaderFragment.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\CardReaderFragment.java"
             line="544"
             column="65"/>
     </issue>
@@ -349,7 +349,7 @@ Similarly, when *not* using the appcompat library, you should be using the `andr
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\build.gradle"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\build.gradle"
             line="42"
             column="5"/>
     </issue>
@@ -366,7 +366,7 @@ Similarly, when *not* using the appcompat library, you should be using the `andr
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\build.gradle"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\build.gradle"
             line="43"
             column="5"/>
     </issue>
@@ -382,7 +382,7 @@ Similarly, when *not* using the appcompat library, you should be using the `andr
         errorLine1="        android:minSdkVersion=&quot;18&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\AndroidManifest.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\AndroidManifest.xml"
             line="8"
             column="9"/>
     </issue>
@@ -398,7 +398,7 @@ Similarly, when *not* using the appcompat library, you should be using the `andr
         errorLine1="        android:targetSdkVersion=&quot;22&quot; />"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\AndroidManifest.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\AndroidManifest.xml"
             line="9"
             column="9"/>
     </issue>
@@ -419,7 +419,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\printfbmp_listview_item.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\printfbmp_listview_item.xml"
             line="19"
             column="9"/>
     </issue>
@@ -436,7 +436,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine2="    ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="73"
             column="5"/>
     </issue>
@@ -453,7 +453,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine2="        ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="160"
             column="9"/>
     </issue>
@@ -470,7 +470,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="75"
             column="9"/>
     </issue>
@@ -487,7 +487,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="161"
             column="13"/>
     </issue>
@@ -504,7 +504,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="167"
             column="17"/>
     </issue>
@@ -521,7 +521,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="193"
             column="21"/>
     </issue>
@@ -537,7 +537,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine1="            android:layout_weight=&quot;1&quot; >"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="163"
             column="13"/>
     </issue>
@@ -553,7 +553,7 @@ There *are* cases where you might need to use `dp`; typically this happens when 
         errorLine1="                android:layout_weight=&quot;1&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="170"
             column="17"/>
     </issue>
@@ -576,7 +576,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine1="    android:background=&quot;@android:color/white&quot;"
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="5"
             column="5"/>
     </issue>
@@ -592,7 +592,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine1="     &lt;color name=&quot;setting_focus&quot;>#61d7a4&lt;/color> "
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\colors.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\colors.xml"
             line="15"
             column="13"/>
     </issue>
@@ -608,7 +608,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine1="     &lt;color name=&quot;gray&quot;>#C4C4C4&lt;/color>"
         errorLine2="            ~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\colors.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\colors.xml"
             line="16"
             column="13"/>
     </issue>
@@ -624,11 +624,11 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine1="    &lt;dimen name=&quot;activity_horizontal_margin&quot;>16dp&lt;/dimen>"
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\dimens.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\dimens.xml"
             line="4"
             column="12"/>
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values-w820dp\dimens.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values-w820dp\dimens.xml"
             line="8"
             column="12"/>
     </issue>
@@ -644,7 +644,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine1="    &lt;dimen name=&quot;activity_vertical_margin&quot;>16dp&lt;/dimen>"
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\dimens.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\dimens.xml"
             line="5"
             column="12"/>
     </issue>
@@ -660,7 +660,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine1="&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; >  "
         errorLine2="^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\menu\main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\menu\main.xml"
             line="1"
             column="1"/>
     </issue>
@@ -674,7 +674,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         summary="Unused resources"
         explanation="Unused resources make applications larger and slow down builds.">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\drawable-xhdpi\search.png"/>
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\drawable-xhdpi\search.png"/>
     </issue>
 
     <issue
@@ -689,7 +689,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="        ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="67"
             column="9"/>
     </issue>
@@ -706,7 +706,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="    ^"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_bt_devices.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_bt_devices.xml"
             line="10"
             column="5"/>
     </issue>
@@ -723,7 +723,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="                    ^"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="141"
             column="21"/>
     </issue>
@@ -742,7 +742,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="                                    ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\strings.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\strings.xml"
             line="66"
             column="37"/>
     </issue>
@@ -761,7 +761,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="                               ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\strings.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\strings.xml"
             line="68"
             column="32"/>
     </issue>
@@ -780,7 +780,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="                                      ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\strings.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\strings.xml"
             line="69"
             column="39"/>
     </issue>
@@ -799,7 +799,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="                               ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\strings.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\strings.xml"
             line="82"
             column="32"/>
     </issue>
@@ -818,7 +818,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="                            ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\strings.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\strings.xml"
             line="83"
             column="29"/>
     </issue>
@@ -837,7 +837,7 @@ Of course it&apos;s possible that your custom drawable is translucent and you wa
         errorLine2="                            ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\values\strings.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\values\strings.xml"
             line="84"
             column="29"/>
     </issue>
@@ -855,7 +855,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         url="http://developer.android.com/guide/practices/screens_support.html"
         urls="http://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\drawable-hdpi"/>
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\drawable-hdpi"/>
     </issue>
 
     <issue
@@ -871,7 +871,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         url="http://developer.android.com/guide/practices/screens_support.html"
         urls="http://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\drawable-mdpi"/>
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\drawable-mdpi"/>
     </issue>
 
     <issue
@@ -887,7 +887,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         url="http://developer.android.com/guide/practices/screens_support.html"
         urls="http://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\drawable-xhdpi"/>
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\drawable-xhdpi"/>
     </issue>
 
     <issue
@@ -903,7 +903,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         url="http://developer.android.com/guide/practices/screens_support.html"
         urls="http://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\drawable-xxhdpi"/>
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\drawable-xxhdpi"/>
     </issue>
 
     <issue
@@ -919,7 +919,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         url="http://developer.android.com/guide/practices/screens_support.html"
         urls="http://developer.android.com/guide/practices/screens_support.html">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res"/>
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res"/>
     </issue>
 
     <issue
@@ -935,7 +935,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_cardreader.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_cardreader.xml"
             line="40"
             column="9"/>
     </issue>
@@ -953,7 +953,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_cardreader.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_cardreader.xml"
             line="50"
             column="9"/>
     </issue>
@@ -971,7 +971,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_cardreader.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_cardreader.xml"
             line="61"
             column="9"/>
     </issue>
@@ -989,7 +989,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="110"
             column="9"/>
     </issue>
@@ -1007,7 +1007,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="119"
             column="9"/>
     </issue>
@@ -1025,7 +1025,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="129"
             column="9"/>
     </issue>
@@ -1043,7 +1043,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="139"
             column="9"/>
     </issue>
@@ -1061,7 +1061,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="219"
             column="9"/>
     </issue>
@@ -1079,7 +1079,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="229"
             column="9"/>
     </issue>
@@ -1097,7 +1097,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="240"
             column="9"/>
     </issue>
@@ -1115,7 +1115,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="251"
             column="9"/>
     </issue>
@@ -1133,7 +1133,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="            &lt;Button"
         errorLine2="            ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="389"
             column="13"/>
     </issue>
@@ -1151,7 +1151,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="            &lt;Button"
         errorLine2="            ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="398"
             column="13"/>
     </issue>
@@ -1169,7 +1169,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_qrscaner.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_qrscaner.xml"
             line="40"
             column="9"/>
     </issue>
@@ -1187,7 +1187,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine1="        &lt;Button"
         errorLine2="        ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_qrscaner.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_qrscaner.xml"
             line="49"
             column="9"/>
     </issue>
@@ -1206,7 +1206,7 @@ Low density is not really used much anymore, so this check ignores the ldpi dens
         errorLine2="    ^"
         quickfix="studio">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\AndroidManifest.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\AndroidManifest.xml"
             line="22"
             column="5"/>
     </issue>
@@ -1227,7 +1227,7 @@ If you really want to keep the text field generic, you can suppress this warning
         errorLine2="                ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="191"
             column="17"/>
     </issue>
@@ -1248,7 +1248,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="    ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_home.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_home.xml"
             line="8"
             column="5"/>
     </issue>
@@ -1269,7 +1269,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="            ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="18"
             column="13"/>
     </issue>
@@ -1290,7 +1290,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="        ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="25"
             column="9"/>
     </issue>
@@ -1311,7 +1311,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="        ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="36"
             column="9"/>
     </issue>
@@ -1332,7 +1332,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="        ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="45"
             column="9"/>
     </issue>
@@ -1353,7 +1353,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="        ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="54"
             column="9"/>
     </issue>
@@ -1374,7 +1374,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="        ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="63"
             column="9"/>
     </issue>
@@ -1395,7 +1395,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="            ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="177"
             column="13"/>
     </issue>
@@ -1416,7 +1416,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="            ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="241"
             column="13"/>
     </issue>
@@ -1437,7 +1437,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="        ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\item_bt_device.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\item_bt_device.xml"
             line="39"
             column="9"/>
     </issue>
@@ -1458,7 +1458,7 @@ Note that for text fields, you should not set both the `hint` and the `contentDe
         errorLine2="    ^"
         quickfix="studio,adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\printfbmp_listview_item.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\printfbmp_listview_item.xml"
             line="8"
             column="5"/>
     </issue>
@@ -1476,7 +1476,7 @@ If your view is labeled but by a label in a different layout which includes this
         errorLine1="    &lt;EditText"
         errorLine2="    ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="76"
             column="5"/>
     </issue>
@@ -1494,7 +1494,7 @@ If your view is labeled but by a label in a different layout which includes this
         errorLine1="            &lt;EditText"
         errorLine2="            ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="321"
             column="13"/>
     </issue>
@@ -1512,7 +1512,7 @@ If your view is labeled but by a label in a different layout which includes this
         errorLine1="            &lt;EditText"
         errorLine2="            ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="359"
             column="13"/>
     </issue>
@@ -1530,7 +1530,7 @@ If your view is labeled but by a label in a different layout which includes this
         errorLine1="                &lt;EditText"
         errorLine2="                ^">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="191"
             column="17"/>
     </issue>
@@ -1551,7 +1551,7 @@ If your view is labeled but by a label in a different layout which includes this
         errorLine1="        mTvDockBTDesp.setText( name + &quot;(&quot; + addr + &quot;)&quot; );"
         errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\SettingFragment.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\SettingFragment.java"
             line="238"
             column="32"/>
     </issue>
@@ -1572,7 +1572,7 @@ If your view is labeled but by a label in a different layout which includes this
         errorLine1="        mTvCardBTDesp.setText( name + &quot;(&quot; + addr + &quot;)&quot; );"
         errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\java\com\cynoware\posmate\SettingFragment.java"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\java\com\cynoware\posmate\SettingFragment.java"
             line="242"
             column="32"/>
     </issue>
@@ -1595,7 +1595,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_home.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_home.xml"
             line="22"
             column="13"/>
     </issue>
@@ -1618,7 +1618,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="85"
             column="9"/>
     </issue>
@@ -1641,7 +1641,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="116"
             column="13"/>
     </issue>
@@ -1664,7 +1664,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="126"
             column="13"/>
     </issue>
@@ -1687,7 +1687,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="136"
             column="13"/>
     </issue>
@@ -1710,7 +1710,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="146"
             column="13"/>
     </issue>
@@ -1733,7 +1733,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="210"
             column="9"/>
     </issue>
@@ -1756,7 +1756,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="225"
             column="13"/>
     </issue>
@@ -1779,7 +1779,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="236"
             column="13"/>
     </issue>
@@ -1802,7 +1802,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="247"
             column="13"/>
     </issue>
@@ -1825,7 +1825,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="258"
             column="13"/>
     </issue>
@@ -1848,7 +1848,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="273"
             column="13"/>
     </issue>
@@ -1871,7 +1871,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="331"
             column="17"/>
     </issue>
@@ -1894,7 +1894,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="369"
             column="17"/>
     </issue>
@@ -1917,7 +1917,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="395"
             column="17"/>
     </issue>
@@ -1940,7 +1940,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="405"
             column="17"/>
     </issue>
@@ -1963,7 +1963,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_qrscaner.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_qrscaner.xml"
             line="73"
             column="13"/>
     </issue>
@@ -1986,7 +1986,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="98"
             column="25"/>
     </issue>
@@ -2009,7 +2009,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="151"
             column="25"/>
     </issue>
@@ -2032,7 +2032,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="225"
             column="25"/>
     </issue>
@@ -2055,7 +2055,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="14"
             column="9"/>
     </issue>
@@ -2078,7 +2078,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="38"
             column="21"/>
     </issue>
@@ -2101,7 +2101,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="63"
             column="25"/>
     </issue>
@@ -2124,7 +2124,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="72"
             column="25"/>
     </issue>
@@ -2147,7 +2147,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="81"
             column="25"/>
     </issue>
@@ -2170,7 +2170,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="97"
             column="25"/>
     </issue>
@@ -2193,7 +2193,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="106"
             column="25"/>
     </issue>
@@ -2216,7 +2216,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="115"
             column="25"/>
     </issue>
@@ -2239,7 +2239,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="132"
             column="21"/>
     </issue>
@@ -2262,7 +2262,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="154"
             column="29"/>
     </issue>
@@ -2285,7 +2285,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="162"
             column="29"/>
     </issue>
@@ -2308,7 +2308,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="170"
             column="29"/>
     </issue>
@@ -2331,7 +2331,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="187"
             column="21"/>
     </issue>
@@ -2354,7 +2354,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\dialog_iccard.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\dialog_iccard.xml"
             line="198"
             column="21"/>
     </issue>
@@ -2377,7 +2377,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\item_bt_device.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\item_bt_device.xml"
             line="20"
             column="13"/>
     </issue>
@@ -2400,7 +2400,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="            ~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\item_bt_device.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\item_bt_device.xml"
             line="28"
             column="13"/>
     </issue>
@@ -2423,7 +2423,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\item_simple_text.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\item_simple_text.xml"
             line="11"
             column="9"/>
     </issue>
@@ -2446,7 +2446,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\menu\main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\menu\main.xml"
             line="6"
             column="9"/>
     </issue>
@@ -2469,7 +2469,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\printfbmp_listview_item.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\printfbmp_listview_item.xml"
             line="14"
             column="9"/>
     </issue>
@@ -2492,7 +2492,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="adt">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\printfbmp_listview_item.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\printfbmp_listview_item.xml"
             line="22"
             column="9"/>
     </issue>
@@ -2508,7 +2508,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine1="                android:paddingLeft=&quot;15dp&quot; >"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="85"
             column="17"/>
     </issue>
@@ -2524,7 +2524,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine1="                android:paddingLeft=&quot;15dp&quot; >"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="138"
             column="17"/>
     </issue>
@@ -2540,7 +2540,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine1="                android:paddingLeft=&quot;15dp&quot; >"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="212"
             column="17"/>
     </issue>
@@ -2556,7 +2556,7 @@ In Android Studio and Eclipse there are quickfixes to automatically extract this
         errorLine1="    android:paddingLeft=&quot;12dip&quot;>"
         errorLine2="    ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\printfbmp_listview_item.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\printfbmp_listview_item.xml"
             line="7"
             column="5"/>
     </issue>
@@ -2576,7 +2576,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;8dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_cardreader.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_cardreader.xml"
             line="54"
             column="13"/>
     </issue>
@@ -2596,7 +2596,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;8dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_cardreader.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_cardreader.xml"
             line="65"
             column="13"/>
     </issue>
@@ -2616,7 +2616,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;8dp&quot;/>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_cardreader.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_cardreader.xml"
             line="92"
             column="13"/>
     </issue>
@@ -2636,7 +2636,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="38"
             column="13"/>
     </issue>
@@ -2656,7 +2656,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="124"
             column="13"/>
     </issue>
@@ -2676,7 +2676,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="134"
             column="13"/>
     </issue>
@@ -2696,7 +2696,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;16dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_led.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_led.xml"
             line="144"
             column="13"/>
     </issue>
@@ -2716,7 +2716,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_alignParentRight=&quot;true&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="30"
             column="13"/>
     </issue>
@@ -2736,7 +2736,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginRight=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="33"
             column="13"/>
     </issue>
@@ -2756,7 +2756,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginRight=&quot;34dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="41"
             column="13"/>
     </issue>
@@ -2776,7 +2776,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_toLeftOf=&quot;@+id/imgChannelTrayUSB&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="42"
             column="13"/>
     </issue>
@@ -2796,7 +2796,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginRight=&quot;34dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="50"
             column="13"/>
     </issue>
@@ -2816,7 +2816,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_toLeftOf=&quot;@+id/imgChannelDockBT&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="51"
             column="13"/>
     </issue>
@@ -2836,7 +2836,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginRight=&quot;34dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="59"
             column="13"/>
     </issue>
@@ -2856,7 +2856,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_toLeftOf=&quot;@+id/imgSetting&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="60"
             column="13"/>
     </issue>
@@ -2876,7 +2876,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginRight=&quot;50dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="68"
             column="13"/>
     </issue>
@@ -2896,7 +2896,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_toLeftOf=&quot;@+id/imgChannelDockUSB&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="69"
             column="13"/>
     </issue>
@@ -2916,7 +2916,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                android:layout_marginLeft=&quot;2dp&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_main.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_main.xml"
             line="169"
             column="17"/>
     </issue>
@@ -2936,7 +2936,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="39"
             column="13"/>
     </issue>
@@ -2956,7 +2956,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="234"
             column="13"/>
     </issue>
@@ -2976,7 +2976,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="245"
             column="13"/>
     </issue>
@@ -2996,7 +2996,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="256"
             column="13"/>
     </issue>
@@ -3016,7 +3016,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="304"
             column="17"/>
     </issue>
@@ -3036,7 +3036,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                android:layout_marginLeft=&quot;10dp&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_printer.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_printer.xml"
             line="403"
             column="17"/>
     </issue>
@@ -3056,7 +3056,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;8dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_qrscaner.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_qrscaner.xml"
             line="53"
             column="13"/>
     </issue>
@@ -3076,7 +3076,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginLeft=&quot;8dp&quot;/>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_qrscaner.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_qrscaner.xml"
             line="81"
             column="13"/>
     </issue>
@@ -3096,7 +3096,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                android:layout_marginLeft=&quot;8dp&quot;"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="48"
             column="17"/>
     </issue>
@@ -3116,7 +3116,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                android:paddingLeft=&quot;15dp&quot; >"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="85"
             column="17"/>
     </issue>
@@ -3136,7 +3136,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                        android:layout_alignParentLeft=&quot;true&quot;"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="95"
             column="25"/>
     </issue>
@@ -3156,7 +3156,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                        android:layout_alignParentRight=&quot;true&quot;"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="108"
             column="25"/>
     </issue>
@@ -3176,7 +3176,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                        android:layout_marginRight=&quot;10dp&quot;"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="110"
             column="25"/>
     </issue>
@@ -3196,7 +3196,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                android:paddingLeft=&quot;15dp&quot; >"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="138"
             column="17"/>
     </issue>
@@ -3216,7 +3216,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                        android:layout_alignParentLeft=&quot;true&quot;"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="148"
             column="25"/>
     </issue>
@@ -3236,7 +3236,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                        android:layout_alignParentRight=&quot;true&quot;"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="161"
             column="25"/>
     </issue>
@@ -3256,7 +3256,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                        android:layout_marginRight=&quot;10dp&quot;"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="163"
             column="25"/>
     </issue>
@@ -3276,7 +3276,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                android:paddingLeft=&quot;15dp&quot; >"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="212"
             column="17"/>
     </issue>
@@ -3296,7 +3296,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="                        android:layout_alignParentLeft=&quot;true&quot;"
         errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\activity_setting.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\activity_setting.xml"
             line="222"
             column="25"/>
     </issue>
@@ -3316,7 +3316,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="        android:layout_marginLeft=&quot;20dp&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\item_bt_device.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\item_bt_device.xml"
             line="11"
             column="9"/>
     </issue>
@@ -3336,7 +3336,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="        android:gravity=&quot;right&quot;"
         errorLine2="                         ~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\item_bt_device.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\item_bt_device.xml"
             line="36"
             column="26"/>
     </issue>
@@ -3356,7 +3356,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="            android:layout_marginRight=&quot;8dp&quot;"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\item_bt_device.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\item_bt_device.xml"
             line="43"
             column="13"/>
     </issue>
@@ -3376,7 +3376,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="    android:paddingLeft=&quot;12dip&quot;>"
         errorLine2="    ~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\printfbmp_listview_item.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\printfbmp_listview_item.xml"
             line="7"
             column="5"/>
     </issue>
@@ -3396,7 +3396,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="        android:layout_toRightOf=&quot;@+id/itemImage&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\printfbmp_listview_item.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\printfbmp_listview_item.xml"
             line="18"
             column="9"/>
     </issue>
@@ -3416,7 +3416,7 @@ For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStar
         errorLine1="        android:layout_toRightOf=&quot;@+id/itemImage&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="F:\chenxin\workspace\posmate\posmate1\app\src\main\res\layout\printfbmp_listview_item.xml"
+            file="C:\Users\john\Desktop\copy\new\posmate_android\demo\app\src\main\res\layout\printfbmp_listview_item.xml"
             line="26"
             column="9"/>
     </issue>
