@@ -45,7 +45,7 @@ public class UART{
 
 
     public static int write(Device device, int uart, byte[] data, int offset, int len){
-    	Log.d( TAG, "write " + len );
+    	Log.d( TAG, "Write  len " + len );
     	
         int fixLen = (len > cmds.MAX_CMD_SIZE - 4 ? (cmds.MAX_CMD_SIZE - 4) : len);
         // int sum = util.cksum(data, offset, len);
@@ -66,7 +66,7 @@ public class UART{
         //assert(sum == sum2);
         
         int writed_bytes_num  = (int)(buf[3] & 0xff);
-        Log.d( TAG, "writed " + writed_bytes_num );
+        Log.d( TAG, "Write writed " + writed_bytes_num );
         return writed_bytes_num;
     }
     

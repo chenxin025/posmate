@@ -2,6 +2,18 @@ package com.cynoware.posmate.sdk;
 
 import android.util.Log;
 
+/*
+*   二维扫描模块说明
+*   1 只支持按键模式
+*   2 只支持Tray USB 通道
+*
+*   提供的对外接口
+*   1 初始化二维扫描模块 initQrReader
+*   2 开始扫描           startScan
+*   3 停止扫描           stopScan
+*   4 关闭扫描模块       closeQRScanner
+*
+*/
 public class QrReader {
 
 	private static final String TAG = "QRReadr";
@@ -36,6 +48,11 @@ public class QrReader {
         byte size0_;
     }
 
+    public  static void initQrReader(Device device, int uart){
+        GPIO.output(device, config.CONFIG_FRAME_2D_ENABLE, 1);
+        UART.setConfig(device, uart,115200, 8, UART.PRRITY_NONE, UART.STOPBITS_1, UART.FLOWCTRL_NONE);
+        QrReader.setScanTriggerMode(device, uart, QrReader.TriggerMode_PressKey);
+    }
     static int getConfigParamSize(ConfigHeader header) {
         switch (header.type_) {
             case (byte)0x22:
@@ -175,12 +192,12 @@ public class QrReader {
         return doConfig(device, uart, CMD_STOP, buf, buf.length, QR_UART_TIMEOUT_MS);
     }
 
-    public static int scan(Device device, int uart, byte[] buf, int offset, int size) {
+    public static int scan(Device device, int uart, byte[] buf, int offset, int size,int outtime_ms) {
     	
     	UART.clearBuffer(device, uart);
         ControlHeader controlHeader = new ControlHeader();
         byte[] raw = new byte[1024];
-        int ret = doControl(device, uart, CMD_SCAN, raw, raw.length, QR_UART_TIMEOUT_MS, controlHeader);
+        int ret = doControl(device, uart, CMD_SCAN, raw, raw.length, outtime_ms, controlHeader);
         if(controlHeader.type_ == 0x03) {
             if (ret < 5) {
                 if (!device.isBroken())
@@ -210,9 +227,9 @@ public class QrReader {
         }
     }
 
-    public static String scan(Device device, int uart) {
+    public static String startScan(Device device, int uart, int ms) {
         byte[] buf = new byte[1024];
-        int len = scan(device, uart, buf, 0, buf.length);
+        int len = scan(device, uart, buf, 0, buf.length, ms);
         if (len >= 0)
             return new String(buf, 0, len);
         else
@@ -231,6 +248,9 @@ public class QrReader {
             return false;
         Log.d(TAG, "scannerExists end");
         return true;
+    }
+    public static void closeQRScanner(Device device){
+        GPIO.output(device, config.CONFIG_FRAME_2D_ENABLE, 0);
     }
 }
 

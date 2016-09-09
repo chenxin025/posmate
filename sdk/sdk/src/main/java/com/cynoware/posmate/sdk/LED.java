@@ -1,5 +1,14 @@
 package com.cynoware.posmate.sdk;
 
+/*
+*     通道
+*     1 Dock USB
+*     2 Dock BLE
+*     设备连接方式 1 板上  2 外部
+*     外部接口使用
+*     1 showLedText(int mode , String str)
+ *      mode有五种类型 CMD_INIT_TYPE CMD_PRICE_TYPE  CMD_COLLECT_TYPE  CMD_CHANGE_TYPE  CMD_TOTAL_TYPE
+ */
 
 public class LED {	
 	
@@ -69,7 +78,7 @@ public class LED {
 	   	UART.write(mDevice, mUartPort, new byte[]{0x0D});
 	}
 
-	public int ledShowText(int mode,String strNum){
+	public int showLedText(int mode,String strNum){
 		//do config
 		UART.setConfig(mDevice, mUartPort, 2400, 8, UART.PRRITY_NONE, UART.STOPBITS_1, UART.FLOWCTRL_XONOFF);
 		UART.fixedWrite(mDevice, mUartPort, new byte[]{0x1B, 0x40});

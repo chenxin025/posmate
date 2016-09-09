@@ -15,5 +15,9 @@ public class config {
     
     public static final int CONFIG_FRAME_2D_ENABLE = 39;   //PB7
     public static final int CONFIG_BEEPER_GPIO = 79;
+    private static final String JAR_VERSION = "v1.0.1";
+    public static String getJarVersion(){
+        return JAR_VERSION;
+    }
   
 }

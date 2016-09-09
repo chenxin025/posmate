@@ -46,11 +46,11 @@ dependencies {
 }
 
 task makeJar(type: Copy) {
-    delete 'build/libs/mysdk.jar'
+    delete 'build/libs/pos_sdk.jar'
     from('build/intermediates/bundles/release/')
     into('build/libs/')
     include('classes.jar')
-    rename ('classes.jar', 'mysdk.jar')
+    rename ('classes.jar', 'pos_sdk.jar')
 }
 
 makeJar.dependsOn(build)

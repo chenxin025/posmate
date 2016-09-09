@@ -220,6 +220,9 @@ public class BleDevice extends Device {
                 characteristic6_ = null;
                 characteristic7_ = null;
 
+                if (null == mBleService || null == mBleService.mBluetoothGatt){
+                    return;
+                }
                 service = mBleService.mBluetoothGatt.getService(BluetoothLeService.UUID_POSMATE_SERVICE);
                 Log.i(TAG, String.format("BondState = %d", mBleService.mBluetoothGatt.getDevice().getBondState()));
                 if(service != null) {

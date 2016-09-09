@@ -3,13 +3,9 @@ package com.cynoware.posmate.sdk;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
 import java.text.DecimalFormat;
-import java.util.BitSet;
 import com.cynoware.posmate.sdk.EscCommand.WrongParaException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import com.cynoware.posmate.sdk.UART;
 import android.graphics.Bitmap;
-import android.graphics.Color;
+
 
 
 public class Printer {
@@ -75,7 +71,7 @@ public class Printer {
 	
 	
 	
-	public void print( String text, int charset ){
+	public void printChar( String text, int charset ){
 		String charsetName = null;											//编码方式
 		byte[] cmdSetCharset = null;
 		
