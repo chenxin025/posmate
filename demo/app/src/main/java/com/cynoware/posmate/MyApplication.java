@@ -23,7 +23,7 @@ public class MyApplication extends Application {
 	// private String NLDPath, NLDPath_Image; // APP更新文件夹路径
 	
 	// private SwipResult SwipResult = null; // 刷卡结果
-	private String mVersion;
+	private static String mVersion = null;
 	/*private String NLDPathString = null; // APP更新文件路径
 	private int Ic_pinInput_flag = 0; // 当前做出是否是IC外部输入密码模式，0否，1是
 	private int Open_card_reader_flag = 0; // 当前操作是否是开启读卡器操作，0否，1是
@@ -107,7 +107,7 @@ public class MyApplication extends Application {
 	    }
 	}
 	
-	public String getVersion() {
+	public static String getVersion() {
 		return mVersion;
 	}
 

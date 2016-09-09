@@ -197,25 +197,23 @@ public class LEDFragment extends Fragment {
 	public void doDisplayLED(final int which){
     	setmPriceType(which);
     	// Choose and check device
-    	Device device = mChannelMgr.getDevice( mSetting.getLEDChannel() );
+		boolean bBoard = mSetting.getLEDDevice()==LED_DEVICE_ON_BOARD;
+		final DeviceInfo info = Util.getLedInfo(getActivity(),mChannelMgr,bBoard);
     	
-    	if( Util.checkDeviceAvailable(device,mMainActivity) == false )
+    	if( Util.checkDeviceAvailable(info.device,mMainActivity) == false ) {
     		return;
-    	
-    	boolean bBoard = mSetting.getLEDDevice()==LED_DEVICE_ON_BOARD;
+		}
     	
     	// startDisplayLEDTask( device, bBoard, special, text );
     	
-    	Activity activity = this.getActivity();
     	
     	if (mChannelMgr.isBusy()) {
-    		Toast.makeText(activity, getString(R.string.SYSTEM_BUSY), Toast.LENGTH_SHORT).show();    		
+    		Toast.makeText(getActivity(), getString(R.string.SYSTEM_BUSY), Toast.LENGTH_SHORT).show();
     		return;
     	}
     	
-    	int uart = bBoard? config.CONFIG_ONBOARD_LED_UART : config.CONFIG_LED_UART;
     	
-    	final LED led = new LED( device, uart, bBoard );
+    	final LED led = new LED(info.device, info.port, bBoard );
     	
     	new Thread() {
     		public void run() {
@@ -224,7 +222,7 @@ public class LEDFragment extends Fragment {
     			//led.config();
     			//led.showSpecial(mSpecial);
     			//led.showText(mText);
-				led.ledShowText(getmPriceType(),mText);
+				led.showLedText(getmPriceType(),mText);
     			
 		   	 	mChannelMgr.setBusy(false);
     		}

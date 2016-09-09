@@ -297,9 +297,6 @@ public class PrinterFragment extends Fragment {
         return rootView;
     }
 
-    private long getCalledTime(long start) {
-        return (SystemClock.currentThreadTimeMillis() - start);
-    }
 
     public void doPrint(final String text, final int charset) {
 
@@ -310,12 +307,11 @@ public class PrinterFragment extends Fragment {
         }
 
         int type = mSetting.getPrinterVendor();
-        int channel = mSetting.getPrinterChannel();
+        final  DeviceInfo info = Util.getPrinterInfo(getActivity(),mChannelMgr);
 
         // Choose and check deviceѡ��
-        final Device device = mChannelMgr.getDevice(channel);
 
-        if (Util.checkDeviceAvailable(device, activity) == false)
+        if (Util.checkDeviceAvailable(info.device, activity) == false)
             return;
 
         if (mChannelMgr.isBusy()) {
@@ -325,26 +321,18 @@ public class PrinterFragment extends Fragment {
 
         Toast.makeText(activity, getString(R.string.PRINTING), Toast.LENGTH_SHORT).show();
 
-        final Printer printer = new Printer(device, config.CONFIG_PRINTER_UART, type);   //CONFIG_PRINTER_UART = 5
-        final Beeper beeper = new Beeper(device, config.CONFIG_BEEPER_GPIO);    //CONFIG_BEEPER_GPIO = 79
+        final Printer printer = new Printer(info.device, info.port, type);   //CONFIG_PRINTER_UART = 5
+        final Beeper beeper = new Beeper(info.device, config.CONFIG_BEEPER_GPIO);    //CONFIG_BEEPER_GPIO = 79
 
-        LogUtil.i(TAG, "**********************  start11=");
         new Thread() {
             public void run() {
-                LogUtil.i(TAG, "**********************start22=");
                 mChannelMgr.setBusy(true);
-                long start = SystemClock.currentThreadTimeMillis();
                 printer.doConfig();
-                LogUtil.i(TAG, "gap0000000000000=" + getCalledTime(start));
-                start = SystemClock.currentThreadTimeMillis();
 
                 boolean bPaper = printer.checkPaper();
-                LogUtil.i(TAG, "gap11111111111111=" + getCalledTime(start));
 
-                if (true) {
-                    start = SystemClock.currentThreadTimeMillis();
-                    printer.print(text, charset);
-                    LogUtil.i(TAG, "gap2222222222222=" + getCalledTime(start));
+                if (bPaper) {
+                    printer.printChar(text, charset);
                 } else {
                     Util.showMessage(activity, "No paper detected");
                     beeper.beep();
@@ -364,13 +352,12 @@ public class PrinterFragment extends Fragment {
         }
 
         int type = mSetting.getPrinterVendor();
-        int channel = mSetting.getPrinterChannel();
+        final DeviceInfo info = Util.getPrinterInfo(getActivity(),mChannelMgr);
 
 
         // Choose and check device
-        Device device = mChannelMgr.getDevice(channel);
 
-        if (Util.checkDeviceAvailable(device, activity) == false)
+        if (Util.checkDeviceAvailable(info.device, activity) == false)
             return;
 
         if (mChannelMgr.isBusy()) {
@@ -380,8 +367,8 @@ public class PrinterFragment extends Fragment {
 
         Toast.makeText(activity, getString(R.string.PRINTING), Toast.LENGTH_SHORT).show();
 
-        final Printer printer = new Printer(device, config.CONFIG_PRINTER_UART, type);
-        final Beeper beeper = new Beeper(device, config.CONFIG_BEEPER_GPIO);
+        final Printer printer = new Printer(info.device, info.port, type);
+        final Beeper beeper = new Beeper(info.device, config.CONFIG_BEEPER_GPIO);
 
         new Thread() {
             public void run() {
@@ -671,8 +658,8 @@ public class PrinterFragment extends Fragment {
         int type = mSetting.getPrinterVendor();
 
         // Choose and check device
-        Device device = mChannelMgr.getDevice(channel);
-        boolean status = getPrintStatusIsOK(device);
+        final DeviceInfo info = Util.getPrinterInfo(getActivity(),mChannelMgr);
+        boolean status = getPrintStatusIsOK(info.device);
         if (!status) {
             return;
         }
@@ -689,8 +676,8 @@ public class PrinterFragment extends Fragment {
         final Bitmap bitmap = printfBitmap;
 
         Util.showMessage(getActivity(), getString(R.string.PRINTING));
-        final Printer printer = new Printer(device, config.CONFIG_PRINTER_UART, type);
-        final Beeper beeper = new Beeper(device, config.CONFIG_BEEPER_GPIO);
+        final Printer printer = new Printer(info.device, info.port, type);
+        final Beeper beeper = new Beeper(info.device, config.CONFIG_BEEPER_GPIO);
 
         new Thread() {
             public void run() {

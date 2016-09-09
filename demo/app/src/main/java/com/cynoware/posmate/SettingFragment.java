@@ -25,6 +25,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.cynoware.posmate.sdk.config;
 public class SettingFragment extends Fragment {
 
 	public static final int REQUEST_SETTING_BT_CHANGE = 102; 
@@ -53,6 +54,10 @@ public class SettingFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.activity_setting, 
 				container, false);
 
+		TextView tvAppVersion = (TextView) rootView.findViewById(R.id.app_version_key);
+		TextView tvJarVersion = (TextView) rootView.findViewById(R.id.jar_version_key);
+		tvAppVersion.setText("app version: "+MyApplication.getVersion());
+		tvJarVersion.setText("sdk version: "+ config.getJarVersion());
 		// POS Type
 		RadioGroup group = (RadioGroup) rootView
 				.findViewById(R.id.radioGroupPOSType);

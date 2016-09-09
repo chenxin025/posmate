@@ -11,8 +11,9 @@ package com.cynoware.posmate;
 
 import com.cynoware.posmate.sdk.Device;
 import com.cynoware.posmate.sdk.GPIO;
+import com.cynoware.posmate.sdk.LogUtil;
 import com.cynoware.posmate.sdk.QrReader;
-import com.cynoware.posmate.sdk.UART;
+
 import com.cynoware.posmate.sdk.config;
 
 import android.app.Activity;
@@ -70,6 +71,7 @@ public class QRScanerFragment extends Fragment {
 		Spinner spinChannel = (Spinner)rootView.findViewById( R.id.spinnerQRScannerChannel);
     	
     	
+		String channels_4[] = {"Tray USB"};
 		String channels_3[] = { "Dock USB", "Dock Bluetooth", "Tray USB" };
 		String channels_2[] = { "Dock USB", "Dock Bluetooth" };
 		String channels[];
@@ -156,11 +158,10 @@ public class QRScanerFragment extends Fragment {
 	public void doStartScan(){
     	
     	// Choose and check device
-		int channel = mSetting.getQRScanerChannel();
+		final DeviceInfo info = Util.getQRScannerInfo(getActivity(),mChannelMgr);
 		
-    	final Device device = mChannelMgr.getDevice( channel );
     	
-    	if( Util.checkDeviceAvailable(device, mActivity) == false )
+    	if( Util.checkDeviceAvailable(info.device, mActivity) == false )
     		return;    	
     	
     	// Check busy
@@ -173,53 +174,28 @@ public class QRScanerFragment extends Fragment {
     	new Thread() {
     		public void run() {
             	mChannelMgr.setBusy( true );
-            	
-            	//QrReader.scannerExists(device, 0);
-            	//QrReader.scannerExists(device, config.CONFIG_TRAY_QRREADER_UART);
-
             	setScaningUI( mIsScaning = true );
-            	
-            	int port;
-            	if( mSetting.getQRScanerChannel() == ChannelManager.CHANNEL_TRAY_USB  )
-            		port = config.CONFIG_TRAY_QRREADER_UART;
-            	else
-            		port = config.CONFIG_DOCK_QRREADER_UART;
-            	
-            	try{
-				    //QrReader.setRawData(baseDevice, config.CONFIG_DOCK_QRREADER_UART);
-            		
-            		GPIO.output(device, config.CONFIG_FRAME_2D_ENABLE, 1);
-
-            	            		
-				    while( mIsScaning ){
-				    	UART.setConfig(device, port, 115200, 8, UART.PRRITY_NONE, UART.STOPBITS_1, UART.FLOWCTRL_NONE);
-				    	
-				    	//String str = QrReader.scan(device, config.CONFIG_DOCK_QRREADER_UART, QrReader.TriggerMode_Respond);
-
-				    	QrReader.setScanTriggerMode( device, port, QrReader.TriggerMode_PressKey);//.TriggerMode_Respond );				    	
-				    	
-				    	String str = QrReader.scan(device, port);
-				    	if(str.trim().length() <= 2){
-				        	str = "";
-			        	}
-				    	if (str != null && str.length() > 0){
-				    		
-				    		// TODO 显示结果
-				    		showResult( str );
-				    		// showMessage(MyApplication.activity.getResources().getString(R.string.qrreader)+str,MessageTag.NORMAL);
-				    		// QrReader.stopScan(device, config.CONFIG_DOCK_QRREADER_UART);
-				    		// showMessage(str,MessageTag.DETAIL);
-				    		mIsScaning = false;
+				QrReader.initQrReader(info.device, info.port);
+				mIsScaning = true;
+            	try {
+					while (mIsScaning) {
+						String str = QrReader.startScan(info.device, info.port,2000);
+						if (str.trim().length() <= 2) {
+							str = "";
+						}
+						if (str != null && str.length() > 0) {
+							// TODO 显示结果
+							showResult(str);
 				    	}
 				    }
 				}catch(Exception ex){
 					ex.printStackTrace();
-					// QrReader.stopScan(device, config.CONFIG_DOCK_QRREADER_UART);
+					mIsScaning = false;
+					QrReader.stopScan(info.device, info.port);
+					QrReader.closeQRScanner(info.device);
             	}finally{
-            		QrReader.stopScan(device, port);
-            		GPIO.output(device, config.CONFIG_FRAME_2D_ENABLE, 0);
+
             	}
-            	
             	setScaningUI( false );
             	mChannelMgr.setBusy( false );
             }
@@ -240,13 +216,14 @@ public class QRScanerFragment extends Fragment {
 	
 	
 	public void doStopScan(){
-		if( mIsScaning == false ){
-			Toast.makeText(mActivity, "Not in scaning", Toast.LENGTH_SHORT).show();
-		}
-		
+		mIsScaning = false;
+		final  DeviceInfo info = Util.getQRScannerInfo(getActivity(),mChannelMgr);
+		QrReader.stopScan(info.device, info.port);
+		QrReader.closeQRScanner(info.device);
+
+		Toast.makeText(mActivity, "Not in scaning", Toast.LENGTH_SHORT).show();
 		mTvTIPScaning.setText( R.string.TIP_Cancel_Scaning );
 		mBtnStop.setEnabled( false );
-		mIsScaning = false;
 
 		/**
 		 * revised by puzhimin 2016.7.25
