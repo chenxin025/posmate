@@ -331,6 +331,45 @@ public class EscCommand {
 	}
 
 	/**
+	 * 设置二维码单元Size
+	 * 	2<=n<=8  n为单元格大小
+	 * 	一般n=3
+	 */
+	public void setQRSize(byte n){
+		byte[] cmd = {0x1d,0x28,0x6B,0x03,0x00,0x31,0x43,n};
+		add(cmd);
+	}
+	/**
+	 * 保存二维码
+	 * pl,ph为长度0<=pL<=255;0<=pL<=255
+	 * d.length>=1
+	 */
+	public void addQRCodePrint(byte[] d) {
+		byte[] cmd ;
+		if (d.length<0||d.length>255){
+			return;
+		}
+		cmd = new byte[8+d.length];
+		cmd[0] = 0x1d; cmd[1] = 0x28; cmd[2] = 0x6b;
+		cmd[3] = (byte)(d.length+3); cmd[4] = 0x00;
+		cmd[5] = 0x31; cmd[6] = 0x50; cmd[7] = 0x30;
+		System.arraycopy(d, 0, cmd, 8, d.length);
+		add(cmd);
+
+	}
+	/**
+	 * 打印二维码
+	 */
+	public void QRPrint(){
+		byte[] cmd = new byte[8];
+		cmd[0] = 0x1d; cmd[1] = 0x28; cmd[2] = 0x6b;
+		cmd[3] = 0x03; cmd[4] = 0x00; cmd[5] = 0x31;
+		cmd[6] = 0x51; cmd[7] =0x30;
+		add(cmd);
+	}
+
+
+	/**
 	 * @param n
 	 *            default 30.
 	 */

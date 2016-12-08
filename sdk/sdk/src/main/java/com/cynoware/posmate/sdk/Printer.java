@@ -162,6 +162,30 @@ public class Printer {
 		UART.fixedWrite( mDevice, mUartPort, buf );
 	}
 
+	//Print QRcode
+	public void printQRcode( String str ){
+
+//		String text = str.toUpperCase();
+//		//text = text.replace( "/[^-0-9A-Z. $/+%]/", "");
+//		if( !text.equals(str) ){
+//			return;
+//		}
+
+		if( str.isEmpty() )
+			return;
+
+		EscCommand escCmd = new EscCommand();
+
+
+		escCmd.setQRSize((byte) 0x06);
+		escCmd.addQRCodePrint(str.getBytes());
+		escCmd.QRPrint();
+
+		byte[] buf = escCmd.createCommandBuffer();
+
+		UART.fixedWrite( mDevice, mUartPort, buf );
+	}
+
 	public void downloadNVBitmap(Bitmap bmp){
 		
 		if( bmp == null )
