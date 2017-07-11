@@ -102,7 +102,7 @@ public class USBDevice extends AbstractDevice {
 
 			 //原代码
 //			if(clicktimes > 1){
-//				Util.showMessage( mContext, "Card Reader connect failed via USB");
+//				Utils.showMessage( mContext, "Card Reader connect failed via USB");
 //				// baseActivity.showMessage("Exception, USB Device connection failed!", MessageTag.ERROR);
 //			}
 //			else{

@@ -177,7 +177,7 @@
     #–keepattributes Signature
 
     #移除log 测试了下没有用还是建议自己定义一个开关控制是否输出日志
-    #-assumenosideeffects class android.util.Log {
+    #-assumenosideeffects class android.Utils.Log {
     #    public static boolean isLoggable(java.lang.String, int);
     #    public static int v(...);
     #    public static int i(...);

@@ -9,11 +9,9 @@
 
 package com.cynoware.posmate;
 
-import com.cynoware.posmate.sdk.Device;
-import com.cynoware.posmate.sdk.LED;
-import com.cynoware.posmate.sdk.config;
+import com.cynoware.posmate.sdk.SDKLog;
+import com.cynoware.posmate.sdk.led.LED;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -27,7 +25,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import android.widget.Toast;
 
 
 public class LEDFragment extends Fragment {
@@ -35,11 +32,12 @@ public class LEDFragment extends Fragment {
 	private static final int LED_DEVICE_ON_BOARD = 0;
     private static final int LED_DEVICE_EXTERNAL = 1;
 
-    private ChannelManager mChannelMgr;
+    //private ChannelManager mChannelMgr;
     private MainActivity mMainActivity;
     private Setting mSetting;
     private EditText mEditText;
     private byte[] mSpecial;
+	private int mPriceType = -1;
     private String mText;
 
 	public LEDFragment() {
@@ -53,7 +51,7 @@ public class LEDFragment extends Fragment {
 		mSetting = Setting.getInstance(activity);
 		
 		Typeface font = activity.mFontDigit;
-		mChannelMgr = activity.mChannelMgr;
+		//mChannelMgr = activity.mChannelMgr;
 		
 		View rootView = inflater.inflate(R.layout.activity_led, container,
 				false);
@@ -90,10 +88,10 @@ public class LEDFragment extends Fragment {
     	Adapter adapterChannel = new ArrayAdapter<String>(activity,android.R.layout.simple_list_item_1, channels );
     	spinChannel.setAdapter((SpinnerAdapter) adapterChannel);
     	
-    	if( mSetting.getLEDChannel() == ChannelManager.CHANNEL_DOCK_USB )
-    		spinChannel.setSelection( 0 );
-    	else
-    		spinChannel.setSelection( 1 );
+//    	if( mSetting.getLEDChannel() == ChannelManager.CHANNEL_DOCK_USB )
+//    		spinChannel.setSelection( 0 );
+//    	else
+//    		spinChannel.setSelection( 1 );
     	
     	
     	spinChannel.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){    
@@ -103,11 +101,11 @@ public class LEDFragment extends Fragment {
 					int position, long id) {
 				switch( position ){
 				case 0:
-					mSetting.setLEDChannel(ChannelManager.CHANNEL_DOCK_USB);
+					//mSetting.setLEDChannel(ChannelManager.CHANNEL_DOCK_USB);
 					break;
 					
 				case 1:
-					mSetting.setLEDChannel(ChannelManager.CHANNEL_DOCK_BT);
+					//mSetting.setLEDChannel(ChannelManager.CHANNEL_DOCK_BT);
 					break;	
 				}
 			}
@@ -123,9 +121,10 @@ public class LEDFragment extends Fragment {
     		btnInit.setOnClickListener(new View.OnClickListener() {				
 				@Override
 				public void onClick(View v) {
-					mSpecial = LED.CMD_INIT;
 					mText = null;
-					doDisplayLED();
+					//doDisplayLED(LED.CMD_INIT_TYPE);
+					MyApplication.getInstance().getPosService().showLedText(0,LED.CMD_INIT_TYPE, "", null,null);
+
 				}
 			});
     	}
@@ -133,25 +132,25 @@ public class LEDFragment extends Fragment {
     	Button btnPrice = (Button)rootView.findViewById(R.id.btnPrice);
     	btnPrice.setTypeface(font);
     	if(btnPrice != null){
+
     		btnPrice.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					mSpecial = LED.CMD_PRICE;
-					doDisplayLED();
+					MyApplication.getInstance().getPosService().showLedText(0,LED.CMD_PRICE_TYPE, mText, null,null);
 				}
 			});
     	}
     	
     	Button btnTotal = (Button)rootView.findViewById(R.id.btnTotal);
     	btnTotal.setTypeface(font);
+
     	if(btnTotal != null){
     		btnTotal.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					mSpecial = LED.CMD_TOTAL;
-					doDisplayLED();
+					MyApplication.getInstance().getPosService().showLedText(0,LED.CMD_TOTAL_TYPE, mText, null,null);
 				}
 			});
     	}
@@ -160,11 +159,10 @@ public class LEDFragment extends Fragment {
     	btnCollect.setTypeface(font);
     	if(btnCollect != null){
     		btnCollect.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					mSpecial = LED.CMD_COLLECT;
-					doDisplayLED();					
+					MyApplication.getInstance().getPosService().showLedText(0,LED.CMD_COLLECT_TYPE, mText, null,null);
 				}
 			});
     	}
@@ -173,11 +171,10 @@ public class LEDFragment extends Fragment {
     	btnChange.setTypeface(font);
     	if(btnChange != null){
     		btnChange.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					mSpecial = LED.CMD_CHANGE;
-					doDisplayLED();
+					MyApplication.getInstance().getPosService().showLedText(0,LED.CMD_CHANGE_TYPE, mText, null,null);
 				}
 			});
     	}
@@ -186,52 +183,71 @@ public class LEDFragment extends Fragment {
     	Button btnShowtxt = (Button)rootView.findViewById(R.id.btnShowtxt);
     	if(btnShowtxt != null){
     		btnShowtxt.setOnClickListener(new View.OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
 					mText = mEditText.getText().toString();
-					doDisplayLED();
+					//MyApplication.getInstance().getPosService().showLedText(LED.CMD_INIT_TYPE,null,null,null);
+					MyApplication.getInstance().getPosService().showLedText(0,LED.CMD_COLLECT_TYPE, mText, null,null);
 				}
 			});
     	}
+		/**
+		 * added by pu
+		 */
+//		Button btnShowLCD = (Button)rootView.findViewById(R.id.btnLCD);
+//		if(btnShowLCD !=null){
+//			btnShowLCD.setOnClickListener(new View.OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					mText = mEditText.getText().toString();
+//					doDisplayLCD();
+//				}
+//			});
+//		}
 		return rootView;
 	}
-	
-	
-	public void doDisplayLED(){
-    	
-    	// Choose and check device
-    	Device device = mChannelMgr.getDevice( mSetting.getLEDChannel() );
-    	
-    	if( Util.checkDeviceAvailable(device,mMainActivity) == false )
-    		return;
-    	
-    	boolean bBoard = mSetting.getLEDDevice()==LED_DEVICE_ON_BOARD;
-    	
-    	// startDisplayLEDTask( device, bBoard, special, text );
-    	
-    	Activity activity = this.getActivity();
-    	
-    	if (mChannelMgr.isBusy()) {
-    		Toast.makeText(activity, getString(R.string.SYSTEM_BUSY), Toast.LENGTH_SHORT).show();    		
-    		return;
-    	}
-    	
-    	int uart = bBoard? config.CONFIG_ONBOARD_LED_UART : config.CONFIG_LED_UART;
-    	
-    	final LED led = new LED( device, uart, bBoard );
-    	
-    	new Thread() {
-    		public void run() {
-    			mChannelMgr.setBusy(true);
-    			
-    			led.config();    			
-    			led.showSpecial(mSpecial);
-    			led.showText(mText);	
-    			
-		   	 	mChannelMgr.setBusy(false);
-    		}
-	    }.start();
-    }
-	
+
+
+	private void doDisplayLCD(){
+		SDKLog.i("aa","*********************showBytesWithLCD************************");
+		//final DeviceInfo info = Util.getLedInfo(getActivity(),mChannelMgr,true);
+		//final LCD lcd = new LCD(info.device, info.port, true );
+
+		//lcd.showBytesWithLCD(getActivity(),mText);
+	}
+
+
+
+//	public void doDisplayLED(final int which){
+//    	setmPriceType(which);
+//    	// Choose and check device
+//		boolean bBoard = mSetting.getLEDDevice()==LED_DEVICE_ON_BOARD;
+//		final DeviceInfo info = Util.getLedInfo(getActivity(),mChannelMgr,bBoard);
+//    	if( Util.checkDeviceAvailable(info.device,mMainActivity) == false ) {
+//			return;
+//		}
+//
+//    	if (mChannelMgr.isBusy()) {
+//    		Toast.makeText(getActivity(), getString(R.string.SYSTEM_BUSY), Toast.LENGTH_SHORT).show();
+//    		return;
+//    	}
+//
+//    	final LED led = new LED(info.device, info.port, bBoard );
+//    	new Thread() {
+//    		public void run() {
+//    			mChannelMgr.setBusy(true);
+//				led.showLedText(getmPriceType(),mText);
+//		   	 	mChannelMgr.setBusy(false);
+//    		}
+//	    }.start();
+//    }
+
+	public void setmPriceType(int type){
+		mPriceType = type;
+	}
+
+	public int getmPriceType(){
+		return mPriceType;
+	}
 }

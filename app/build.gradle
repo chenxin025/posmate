@@ -4,13 +4,21 @@ android {
     compileSdkVersion 24
     buildToolsVersion '24.0.1'
 
+    lintOptions {
+        abortOnError false
+    }
     defaultConfig {
         applicationId "com.cynoware.posmate"
-        minSdkVersion 21
+        minSdkVersion 18
         targetSdkVersion 22
 //        jackOptions {
 //            enabled true
 //        }
+    }
+
+
+    externalNativeBuild {
+
     }
 
     buildTypes {
@@ -23,7 +31,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled true
+            minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -33,13 +41,12 @@ android {
 //        sourceCompatibility JavaVersion.VERSION_1_8
 //        targetCompatibility JavaVersion.VERSION_1_8
 //    }
+    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/','src/main/jniLibs'] } }
 }
 
 dependencies {
     compile 'com.android.support:support-v4:24.1.1'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile files('libs/meSdk-2.0.5-SNAPSHOT.jar')
-    compile files('libs/classes.jar')
-    compile files('libs/8_5_2.jar')
     compile project(':sdk')
 }

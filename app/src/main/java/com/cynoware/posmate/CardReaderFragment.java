@@ -68,7 +68,7 @@ import android.widget.Toast;
 public class CardReaderFragment extends Fragment {
 	
 	
-    private ChannelManager mChannelMgr;
+
     private Setting mSetting;
     private MainActivity mActivity;
     AlertDialog dialogInit;
@@ -121,9 +121,7 @@ public class CardReaderFragment extends Fragment {
 		MainActivity activity = mActivity = (MainActivity) this.getActivity();
 		mSetting = Setting.getInstance(activity); 
 				
-		mChannelMgr = activity.mChannelMgr;
-		mBTDevice = mChannelMgr.mCardBTDevice;
-		mUSBDevice = mChannelMgr.mCardUSBDevice;
+
 		
 		View rootView = inflater.inflate(R.layout.activity_cardreader, container,
 				false);
@@ -144,10 +142,10 @@ public class CardReaderFragment extends Fragment {
     	Adapter adapterChannel = new ArrayAdapter<String>(activity,android.R.layout.simple_list_item_1, channels );
     	spinChannel.setAdapter((SpinnerAdapter) adapterChannel);
     	
-    	if( mSetting.getCardReaderChannel() == ChannelManager.CHANNEL_CARD_USB )
-    		spinChannel.setSelection( 0 );
-    	else
-    		spinChannel.setSelection( 1 );
+//    	if( mSetting.getCardReaderChannel() == ChannelManager.CHANNEL_CARD_USB )
+//    		spinChannel.setSelection( 0 );
+//    	else
+//    		spinChannel.setSelection( 1 );
     	
     	
     	spinChannel.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){    
@@ -155,15 +153,15 @@ public class CardReaderFragment extends Fragment {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				switch( position ){
-				case 0:
-					mSetting.setCardReaderChannel(ChannelManager.CHANNEL_CARD_USB);
-					break;
-					
-				case 1:
-					mSetting.setCardReaderChannel(ChannelManager.CHANNEL_CARD_BT);
-					break;	
-				}
+//				switch( position ){
+//				case 0:
+//					mSetting.setCardReaderChannel(ChannelManager.CHANNEL_CARD_USB);
+//					break;
+//
+//				case 1:
+//					mSetting.setCardReaderChannel(ChannelManager.CHANNEL_CARD_BT);
+//					break;
+//				}
 			}
 
 			@Override
@@ -272,14 +270,14 @@ public class CardReaderFragment extends Fragment {
 
   			@Override
   			public void run() {
-  				mChannelMgr.setBusy(true);
+  				//mChannelMgr.setBusy(true);
   				
   				try {
   					
   					
   					
   					//if( channel == ChannelManager.CHANNEL_CARD_BT ){
-  						connectDevice();
+  						//connectDevice();
   			  		//}
   					
   					// PinInputInterfaceImpl pinInputInterface = new PinInputInterfaceImpl();
@@ -307,7 +305,7 @@ public class CardReaderFragment extends Fragment {
   					showMessage( "Load key fail" + e );
   				}
   				
-  				mChannelMgr.setBusy(false);
+  				//mChannelMgr.setBusy(false);
   			}
   		}).start();
   	}
@@ -335,7 +333,7 @@ public class CardReaderFragment extends Fragment {
   			public void run() {
   				try {
   					//if( channel == ChannelManager.CHANNEL_CARD_BT ){
-  						connectDevice();
+  						//connectDevice();
   			  		//}
   					
   					if(mCardReaderInterface != null){
@@ -343,13 +341,13 @@ public class CardReaderFragment extends Fragment {
   						mCardReaderInterface.closeCardReader();
   					}
 
-  					mChannelMgr.setBusy(false);
+  					//mChannelMgr.setBusy(false);
   				} catch (Exception e) {
   					showMessage( "Error" );
   				}
   				
   				
-  				mChannelMgr.setBusy( false);			    	
+  				//mChannelMgr.setBusy( false);
 		    	mIsReading = false;
 				setReadingUI(false);				  				
   			}
@@ -376,10 +374,10 @@ public class CardReaderFragment extends Fragment {
   				return;
   		}*/
 		
-  		if (mChannelMgr.isBusy()) {
-    		Toast.makeText(mActivity, getString(R.string.SYSTEM_BUSY), Toast.LENGTH_SHORT).show();    		
-    		return;
-    	}
+//  		if (mChannelMgr.isBusy()) {
+//    		Toast.makeText(mActivity, getString(R.string.SYSTEM_BUSY), Toast.LENGTH_SHORT).show();
+//    		return;
+//    	}
 
 		new Thread(new Runnable() {
 
@@ -387,7 +385,7 @@ public class CardReaderFragment extends Fragment {
 			public void run() {
 				
 				try {
-					mChannelMgr.setBusy( true );			    	
+					//mChannelMgr.setBusy( true );
 			    	mIsReading = true;
 					setReadingUI(true);
 					
@@ -397,7 +395,7 @@ public class CardReaderFragment extends Fragment {
 					mICCardInterface = new ICCardInterfaceImpl();
 					
 					//if( channel == ChannelManager.CHANNEL_CARD_BT ){
-  						connectDevice();
+  						//connectDevice();
   			  		//}
 					
 					showMessage("Reading...");
@@ -426,12 +424,12 @@ public class CardReaderFragment extends Fragment {
 								}								
 							} else if (openCardReaderEvent.isUserCanceled()) {
 								showMessage("Reading Stoped");
-								mChannelMgr.setBusy(false);
+								//mChannelMgr.setBusy(false);
 							} else if (openCardReaderEvent.isFailed()) {
 								showMessage("Card reader open failed");
 							}
 							
-							mChannelMgr.setBusy( false);			    	
+							//mChannelMgr.setBusy( false);
 					    	mIsReading = false;
 							setReadingUI(false);
 						}
@@ -443,13 +441,13 @@ public class CardReaderFragment extends Fragment {
 					});
 
 				} catch (Exception e) {
-					mChannelMgr.setBusy( false);			    	
+					//mChannelMgr.setBusy( false);
 			    	mIsReading = false;
 					setReadingUI(false);
 					
 					e.printStackTrace();
 					showMessage("Please Load key...");
-					mChannelMgr.setBusy(false);
+					//mChannelMgr.setBusy(false);
 				}
 			}
 		}).start();
@@ -476,62 +474,62 @@ public class CardReaderFragment extends Fragment {
     	
     }
  	
-	public boolean connectDevice() {
-		int channel = mSetting.getCardReaderChannel();
-		
-		if (channel == ChannelManager.CHANNEL_CARD_BT) {
-
-			String name = mSetting.getCardBTName();
-			showMessage("Connecting to " + name + " via bluetooth...");
-			
-			// Init controller
-			if( !mBTDevice.isControllerAlive() ){
-				String addr = mSetting.getCardBTAddr();
-				mBTDevice.setBTAddress(addr);
-				mBTDevice.initController();
-				
-				if( !mBTDevice.isControllerAlive() ){
-					showMessage("Device controller not initialized!");
-					return false;
-				}
-			}
-			
-			// Connect
-			if( !mBTDevice.isConnected()){
-				try {
-					mBTDevice.connect();
-				} catch (Exception e) {
-					showMessage("Exception :" + e);
-				}
-			}
-			
-			return mBTDevice.isConnected();
-		}
-		else if (channel == ChannelManager.CHANNEL_CARD_USB) {
-			showMessage("Connecting to device via USB...");
-			
-			if( !mUSBDevice.isControllerAlive() ){
-				mBTDevice.initController();
-				
-				if( !mBTDevice.isControllerAlive() ){
-					showMessage("Device controller not initialized!");
-					return false;
-				}
-			}
-			
-			if( !mUSBDevice.isConnected() ){
-				try {
-					mUSBDevice.connect();
-				}catch (Exception e) {
-					showMessage("Exception :" + e);
-				}				
-			}
-			return mBTDevice.isConnected();
-		} else {
-			showMessage("No connection mode! Please reinitialize!");
-			return false;
-		}
-	}
+//	public boolean connectDevice() {
+//		int channel = mSetting.getCardReaderChannel();
+//
+//		if (channel == ChannelManager.CHANNEL_CARD_BT) {
+//
+//			String name = mSetting.getCardBTName();
+//			showMessage("Connecting to " + name + " via bluetooth...");
+//
+//			// Init controller
+//			if( !mBTDevice.isControllerAlive() ){
+//				String addr = mSetting.getCardBTAddr();
+//				mBTDevice.setBTAddress(addr);
+//				mBTDevice.initController();
+//
+//				if( !mBTDevice.isControllerAlive() ){
+//					showMessage("Device controller not initialized!");
+//					return false;
+//				}
+//			}
+//
+//			// Connect
+//			if( !mBTDevice.isConnected()){
+//				try {
+//					mBTDevice.connect();
+//				} catch (Exception e) {
+//					showMessage("Exception :" + e);
+//				}
+//			}
+//
+//			return mBTDevice.isConnected();
+//		}
+//		else if (channel == ChannelManager.CHANNEL_CARD_USB) {
+//			showMessage("Connecting to device via USB...");
+//
+//			if( !mUSBDevice.isControllerAlive() ){
+//				mBTDevice.initController();
+//
+//				if( !mBTDevice.isControllerAlive() ){
+//					showMessage("Device controller not initialized!");
+//					return false;
+//				}
+//			}
+//
+//			if( !mUSBDevice.isConnected() ){
+//				try {
+//					mUSBDevice.connect();
+//				}catch (Exception e) {
+//					showMessage("Exception :" + e);
+//				}
+//			}
+//			return mBTDevice.isConnected();
+//		} else {
+//			showMessage("No connection mode! Please reinitialize!");
+//			return false;
+//		}
+//	}
 	
 	
 	// IC卡卡槽上电对话框
@@ -588,11 +586,11 @@ public class CardReaderFragment extends Fragment {
  							}
  							mCardReaderInterface.cancelCardRead();
  							//showMessage("卡槽：" + icCardSlot.toString() + "上电完成");
- 							mChannelMgr.setBusy(false);
+ 							//mChannelMgr.setBusy(false);
  						} catch (Exception e) {
  							//showMessage("卡槽上电异常:" + e.getMessage());
  							showMessage("Please check whether the card slot has been inserted into the IC card!");
- 							mChannelMgr.setBusy(false);
+ 							//mChannelMgr.setBusy(false);
  						} 
  					}
  				});
@@ -600,7 +598,7 @@ public class CardReaderFragment extends Fragment {
  					@Override
  					public void onClick(DialogInterface arg0, int arg1) {
  						iccard_dialog.dismiss();
- 						mChannelMgr.setBusy(false);
+ 						//mChannelMgr.setBusy(false);
  					}
  				});
  				
@@ -620,7 +618,7 @@ public class CardReaderFragment extends Fragment {
  			@Override
  			public void run() {
  				
- 				mChannelMgr.setBusy(true);
+ 				//mChannelMgr.setBusy(true);
  				try {
  					showMessage("Begin to express the way to return the results of the credit card:");
  					SwipResult swipRslt = mSwiperInterface.readPlainResult(new SwiperReadModel[] {
@@ -653,12 +651,12 @@ public class CardReaderFragment extends Fragment {
  					} else {
  						showMessage("The credit card is empty.");
  					}
- 					mChannelMgr.setBusy(false);
+ 					//mChannelMgr.setBusy(false);
  				} catch (Exception e) {
  					showMessage("Exception：" + e);
  					//showMessage("是否已经加载主密钥、工作秘钥、AID、公钥！");
  					//showMessage("是否已经开启读卡器并刷卡！");
- 					mChannelMgr.setBusy(false);
+ 					//mChannelMgr.setBusy(false);
  				}
  			}
  		}).start();
@@ -671,7 +669,7 @@ public class CardReaderFragment extends Fragment {
 
 			@Override
 			public void run() {
-				mChannelMgr.setBusy(true);
+				//mChannelMgr.setBusy(true);
 				showRFCardPowerOnDialog();
 
 			}
@@ -738,7 +736,7 @@ public class CardReaderFragment extends Fragment {
 										mCardReaderInterface.cancelCardRead();
 									}catch(Exception e){
 										showMessage("Power on Exception:" + e.getMessage());
-										mChannelMgr.setBusy(false);
+										//mChannelMgr.setBusy(false);
 									}
 									
 									
@@ -748,7 +746,7 @@ public class CardReaderFragment extends Fragment {
 
 						} catch (Exception e) {
 							showMessage("Power on Exception:" + e.getMessage());
-							mChannelMgr.setBusy(false);
+							//mChannelMgr.setBusy(false);
 						}
 
 					}
@@ -758,10 +756,10 @@ public class CardReaderFragment extends Fragment {
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {
 						nccard_dialog.dismiss();
-						mChannelMgr.setBusy(false);
+						//mChannelMgr.setBusy(false);
 					}
 				});
-				mChannelMgr.setBusy(false);
+				//mChannelMgr.setBusy(false);
 				nccard_dialog = builder.create();
 				nccard_dialog.show();
 				nccard_dialog.setCancelable(false);

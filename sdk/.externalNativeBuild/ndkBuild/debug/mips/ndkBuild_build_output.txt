@@ -1,0 +1,5 @@
+md "F:\chenxin\workspace\posmate\posmate2\sdk\build\intermediates\ndkBuild\debug\lib\mips" >NUL 2>NUL || rem
+F:/chenxin/android-sdk_r24.4.1-windows/android-sdk-windows/ndk-bundle/build//../prebuilt/windows-x86_64/bin/echo.exe [mips] "Install        ": "libserial_port.so => F:\chenxin\workspace\posmate\posmate2\sdk\build\intermediates\ndkBuild\debug\lib/mips/libserial_port.so"
+copy /b/y "F:\chenxin\workspace\posmate\posmate2\sdk\.externalNativeBuild\ndkBuild\debug\obj\local\mips\libserial_port.so" "F:\chenxin\workspace\posmate\posmate2\sdk\build\intermediates\ndkBuild\debug\lib\mips\libserial_port.so" > NUL
+F:/chenxin/android-sdk_r24.4.1-windows/android-sdk-windows/ndk-bundle/build//../toolchains/mipsel-linux-android-4.9/prebuilt/windows-x86_64/bin/mipsel-linux-android-strip --strip-unneeded  F:\chenxin\workspace\posmate\posmate2\sdk\build\intermediates\ndkBuild\debug\lib/mips/libserial_port.so
+process_begin: CreateProcess(NULL, "", ...) failed.

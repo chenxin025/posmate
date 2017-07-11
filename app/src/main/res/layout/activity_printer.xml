@@ -206,6 +206,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:layout_marginTop="12dp"
         android:text="Receipt sample"
         android:textSize="18sp"
@@ -213,6 +214,7 @@
 
     <LinearLayout
         android:orientation="horizontal"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -384,6 +386,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="invisible"
             android:orientation="horizontal">
 
             <Button
@@ -406,7 +409,16 @@
                 android:textSize="@dimen/common_button_text_size"
                 android:textColor="@color/white" />
         </LinearLayout>
-
+        <Button
+            android:id="@+id/btnRastPrint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rast Print"
+            android:visibility="invisible"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/common_button"
+            android:textSize="@dimen/common_button_text_size"/>
     </LinearLayout>
 
 

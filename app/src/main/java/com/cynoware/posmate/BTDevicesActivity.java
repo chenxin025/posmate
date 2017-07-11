@@ -14,8 +14,8 @@ import java.lang.reflect.Method;
 import java.util.Set;
 
 import com.cynoware.posmate.R;
-import com.cynoware.posmate.sdk.BleDevice;
-import com.cynoware.posmate.sdk.UsbHandler;
+import com.cynoware.posmate.sdk.io.BleDevice;
+import com.cynoware.posmate.sdk.io.UsbHandler;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

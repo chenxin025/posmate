@@ -25,10 +25,11 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Switch;
 import android.widget.TextView;
 
+
 public class SettingFragment extends Fragment {
 
 	public static final int REQUEST_SETTING_BT_CHANGE = 102; 
-	private ChannelManager mChannelMgr;
+	//private ChannelManager mChannelMgr;
 
 	private Setting mSetting;
 	TextView mTvDockBTDesp, mTvCardBTDesp;
@@ -48,11 +49,16 @@ public class SettingFragment extends Fragment {
 				.findViewById(R.id.imgChannelTrayUSB);
 		
 		mSetting = Setting.getInstance(activity);
-		mChannelMgr = activity.mChannelMgr;
+
 
 		View rootView = inflater.inflate(R.layout.activity_setting, 
 				container, false);
 
+
+		TextView tvAppVersion = (TextView) rootView.findViewById(R.id.app_version_key);
+		TextView tvJarVersion = (TextView) rootView.findViewById(R.id.jar_version_key);
+		tvAppVersion.setText("app version: "+MyApplication.getVersion());
+		//tvJarVersion.setText("sdk version: "+ config.getJarVersion());
 		// POS Type
 		RadioGroup group = (RadioGroup) rootView
 				.findViewById(R.id.radioGroupPOSType);
@@ -81,8 +87,8 @@ public class SettingFragment extends Fragment {
 		// DOCK USB
 		Switch switchDockUSB = (Switch) rootView
 				.findViewById(R.id.switchDockUSB);
-		switchDockUSB.setChecked(mSetting
-				.getChannelEnable(ChannelManager.CHANNEL_DOCK_USB));
+//		switchDockUSB.setChecked(mSetting
+//				.getChannelEnable(ChannelManager.CHANNEL_DOCK_USB));
 
 		switchDockUSB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
@@ -97,8 +103,8 @@ public class SettingFragment extends Fragment {
 		// DOCK BT
 		Switch switchDockBT = (Switch) rootView.findViewById(R.id.switchDockBT);
 
-		switchDockBT.setChecked(mSetting
-				.getChannelEnable(ChannelManager.CHANNEL_DOCK_BT));
+//		switchDockBT.setChecked(mSetting
+//				.getChannelEnable(ChannelManager.CHANNEL_DOCK_BT));
 
 		switchDockBT
 				.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -242,7 +248,7 @@ public class SettingFragment extends Fragment {
 	    			mTvCardBTDesp.setText( name + "(" + addr + ")" );
 	    			
 	    			//if( mSetting.getChannelEnable(ChannelManager.CHANNEL_CARD_BT))	    			
-	    			mChannelMgr.open(ChannelManager.CHANNEL_CARD_BT);
+	    			//mChannelMgr.open(ChannelManager.CHANNEL_CARD_BT);
 	    		}
 	    	}
 		}
@@ -259,25 +265,25 @@ public class SettingFragment extends Fragment {
 	}
 
 	private void openDockAndTrayUSB() {
-		mSetting.setChannelEnable( ChannelManager.CHANNEL_DOCK_USB, true );
-		mChannelMgr.open(ChannelManager.CHANNEL_DOCK_USB);
+//		mSetting.setChannelEnable( ChannelManager.CHANNEL_DOCK_USB, true );
+//		mChannelMgr.open(ChannelManager.CHANNEL_DOCK_USB);
 	}
 
 	private void closeDockAndTrayUSB() {
-		mSetting.setChannelEnable( ChannelManager.CHANNEL_DOCK_USB, false );
-		mSetting.setChannelEnable( ChannelManager.CHANNEL_TRAY_USB, false );
-		mChannelMgr.close(ChannelManager.CHANNEL_DOCK_USB);
-		mChannelMgr.close(ChannelManager.CHANNEL_TRAY_USB);
+//		mSetting.setChannelEnable( ChannelManager.CHANNEL_DOCK_USB, false );
+//		mSetting.setChannelEnable( ChannelManager.CHANNEL_TRAY_USB, false );
+//		mChannelMgr.close(ChannelManager.CHANNEL_DOCK_USB);
+//		mChannelMgr.close(ChannelManager.CHANNEL_TRAY_USB);
 	}
 
 	private void openDockBT() {
-		mSetting.setChannelEnable( ChannelManager.CHANNEL_DOCK_BT, true);
-		mChannelMgr.open(ChannelManager.CHANNEL_DOCK_BT);
+//		mSetting.setChannelEnable( ChannelManager.CHANNEL_DOCK_BT, true);
+//		mChannelMgr.open(ChannelManager.CHANNEL_DOCK_BT);
 	}
 
 	private void closeDockBT() {
-		mSetting.setChannelEnable( ChannelManager.CHANNEL_DOCK_BT, false);
-		mChannelMgr.close(ChannelManager.CHANNEL_DOCK_BT);
+//		mSetting.setChannelEnable( ChannelManager.CHANNEL_DOCK_BT, false);
+//		mChannelMgr.close(ChannelManager.CHANNEL_DOCK_BT);
 	}
 	
 	private void chooseDockBTDevice(){

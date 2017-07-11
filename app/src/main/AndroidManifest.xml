@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cynoware.posmate"
     android:versionCode="130"
-    android:versionName="1.3.0" >
+    android:versionName="1.3.0_0920" >
 
     <uses-sdk
         android:minSdkVersion="18"
@@ -46,8 +46,11 @@
         </activity>
 
         <service
-            android:name="com.cynoware.posmate.sdk.BluetoothLeService"
+            android:name="com.cynoware.posmate.sdk.service.BleService"
             android:enabled="true" >
+        </service>
+
+        <service android:name="com.cynoware.posmate.sdk.service.PosService" >
         </service>
     </application>
 

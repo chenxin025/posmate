@@ -1,0 +1,11 @@
+{
+  "buildFiles": [
+    "F:\\chenxin\\workspace\\posmate\\posmate2\\sdk\\src\\main\\jni\\Android.mk",
+    "F:\\chenxin\\workspace\\posmate\\posmate2\\sdk\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [],
+  "libraries": {},
+  "toolchains": {},
+  "cFileExtensions": [],
+  "cppFileExtensions": []
+}

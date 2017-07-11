@@ -9,8 +9,8 @@
 
 package com.cynoware.posmate;
 
-import com.cynoware.posmate.sdk.CashDrawer;
-import com.cynoware.posmate.sdk.Device;
+import com.cynoware.posmate.sdk.drawer.CashDrawer;
+import com.cynoware.posmate.sdk.io.Device;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -28,7 +28,7 @@ import android.widget.Toast;
 public class CashDrawerFragment extends Fragment {
 
 	private static final int CONFIG_CASHDRAWER_GPIO = (32*2+1);
-    private ChannelManager mChannelMgr;
+    //private ChannelManager mChannelMgr;
     private MainActivity mMainActivity;
     private Setting mSetting;
 
@@ -40,7 +40,7 @@ public class CashDrawerFragment extends Fragment {
 			Bundle savedInstanceState) {
 		
 		MainActivity activity = mMainActivity = (MainActivity) this.getActivity();
-		mChannelMgr = activity.mChannelMgr;
+
 		mSetting = Setting.getInstance(activity);
 		
 		View rootView = inflater.inflate(R.layout.activity_cashdrawer, container,
@@ -51,10 +51,10 @@ public class CashDrawerFragment extends Fragment {
     	Adapter adapterChannel = new ArrayAdapter<String>(activity,android.R.layout.simple_list_item_1, channels );
     	spinChannel.setAdapter((SpinnerAdapter) adapterChannel);
     	
-    	if( mSetting.getCashDrawerChannel() == ChannelManager.CHANNEL_DOCK_USB )
-    		spinChannel.setSelection( 0 );
-    	else
-    		spinChannel.setSelection( 1 );
+//    	if( mSetting.getCashDrawerChannel() == ChannelManager.CHANNEL_DOCK_USB )
+//    		spinChannel.setSelection( 0 );
+//    	else
+//    		spinChannel.setSelection( 1 );
     	
     	
     	spinChannel.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){    
@@ -64,11 +64,11 @@ public class CashDrawerFragment extends Fragment {
 					int position, long id) {
 				switch( position ){
 				case 0:
-					mSetting.setCashDrawerChannel(ChannelManager.CHANNEL_DOCK_USB);
+					//mSetting.setCashDrawerChannel(ChannelManager.CHANNEL_DOCK_USB);
 					break;
 					
 				case 1:
-					mSetting.setCashDrawerChannel(ChannelManager.CHANNEL_DOCK_BT);
+					//mSetting.setCashDrawerChannel(ChannelManager.CHANNEL_DOCK_BT);
 					break;	
 				}
 			}
@@ -92,31 +92,31 @@ public class CashDrawerFragment extends Fragment {
 		return rootView;
 	}
 	
-	public void doOpenCashDrawer(){    	
+	public void doOpenCashDrawer(){
+		MyApplication.getInstance().getPosService().openCachDrawer(null,null);
     	// Choose and check device
-    	Device device = mChannelMgr.getDevice(mSetting.getCashDrawerChannel());
     	
-    	if( Util.checkDeviceAvailable(device, mMainActivity) == false )
-    		return;
-    	
-    	if (mChannelMgr.isBusy()) {
-    		Toast.makeText(mMainActivity, getString(R.string.SYSTEM_BUSY), Toast.LENGTH_SHORT).show();    		
-    		return;
-    	}
-    	
-    	Toast.makeText(mMainActivity, "Opening cash drawer...", Toast.LENGTH_SHORT).show();
-    	
-    	final CashDrawer drawer = new CashDrawer( device, CONFIG_CASHDRAWER_GPIO );
-    	
-    	new Thread() {
-            public void run() {
-            	mChannelMgr.setBusy(true);
-            	
-            	drawer.open();
-		    	
-		    	mChannelMgr.setBusy(false);
-            }
-        }.start();
+//    	if( Util.checkDeviceAvailable(device, mMainActivity) == false )
+//    		return;
+//
+//    	if (mChannelMgr.isBusy()) {
+//    		Toast.makeText(mMainActivity, getString(R.string.SYSTEM_BUSY), Toast.LENGTH_SHORT).show();
+//    		return;
+//    	}
+//
+//    	Toast.makeText(mMainActivity, "Opening cash drawer...", Toast.LENGTH_SHORT).show();
+//
+//    	final CashDrawer drawer = new CashDrawer( device, CONFIG_CASHDRAWER_GPIO );
+//
+//    	new Thread() {
+//            public void run() {
+//            	mChannelMgr.setBusy(true);
+//
+//            	drawer.open();
+//
+//		    	mChannelMgr.setBusy(false);
+//            }
+//        }.start();
     	
     	//startCashDrawerTask(device);
     }

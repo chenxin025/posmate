@@ -97,11 +97,11 @@ public class Setting {
 		mCardBTName = mPreference.getString(PREF_CARD_BT_NAME, "N/A");
 		mCardBTAddr = mPreference.getString(PREF_CARD_BT_ADDR, "");		
 		
-		mPrinterChannel = mPreference.getInt(PREF_PRINTER_CHANNEL, ChannelManager.CHANNEL_DOCK_USB );
-		mLEDChannel = mPreference.getInt(PREF_LED_CHANNEL, ChannelManager.CHANNEL_DOCK_USB );
-		mQRScanerChannel = mPreference.getInt(PREF_QR_SCANER_CHANNEL, ChannelManager.CHANNEL_TRAY_USB );
-		mCashDrawerChannel = mPreference.getInt(PREF_CASH_DRAWER_CHANNEL, ChannelManager.CHANNEL_DOCK_USB );
-		mCardReaderChannel = mPreference.getInt(PREF_CARD_READER_CHANNEL, ChannelManager.CHANNEL_CARD_BT );
+//		mPrinterChannel = mPreference.getInt(PREF_PRINTER_CHANNEL, ChannelManager.CHANNEL_DOCK_USB );
+//		mLEDChannel = mPreference.getInt(PREF_LED_CHANNEL, ChannelManager.CHANNEL_DOCK_USB );
+//		mQRScanerChannel = mPreference.getInt(PREF_QR_SCANER_CHANNEL, ChannelManager.CHANNEL_TRAY_USB );
+//		mCashDrawerChannel = mPreference.getInt(PREF_CASH_DRAWER_CHANNEL, ChannelManager.CHANNEL_DOCK_USB );
+//		mCardReaderChannel = mPreference.getInt(PREF_CARD_READER_CHANNEL, ChannelManager.CHANNEL_CARD_BT );
 		
 		mPrinterVendor = mPreference.getInt(PREF_PRINTER_VENDOR, 0 );
 		mLEDDevice = mPreference.getInt(PREF_LED_DEVICE, 0 );
@@ -109,67 +109,67 @@ public class Setting {
 		mPosModel = mPreference.getString(PREF_POS_MODEL, "np10" );
 	}
 
-	public boolean getChannelEnable(int channel) {
+//	public boolean getChannelEnable(int channel) {
+//
+//		switch (channel) {
+//		case ChannelManager.CHANNEL_DOCK_USB:
+//			return mChannelDockUSB;
+//
+//		case ChannelManager.CHANNEL_DOCK_BT:
+//			return mChannelDockBT;
+//
+//		case ChannelManager.CHANNEL_TRAY_USB:
+//			return mChannelTrayUSB;
+//
+//		case ChannelManager.CHANNEL_TRAY_BT:
+//			return mChannelTrayBT;
+//
+//		case ChannelManager.CHANNEL_CARD_BT:
+//			return mChannelCardBT;
+//
+//		default:
+//			return false;
+//		}
+//	}
 
-		switch (channel) {
-		case ChannelManager.CHANNEL_DOCK_USB:
-			return mChannelDockUSB;
-
-		case ChannelManager.CHANNEL_DOCK_BT:
-			return mChannelDockBT;
-
-		case ChannelManager.CHANNEL_TRAY_USB:
-			return mChannelTrayUSB;
-
-		case ChannelManager.CHANNEL_TRAY_BT:
-			return mChannelTrayBT;
-
-		case ChannelManager.CHANNEL_CARD_BT:
-			return mChannelCardBT;
-
-		default:
-			return false;
-		}
-	}
-
-	public void setChannelEnable(int channel, boolean enable) {
-
-		String pref;
-
-		switch (channel) {
-		case ChannelManager.CHANNEL_DOCK_USB:
-			mChannelDockUSB = enable;
-			pref = PREF_CHANNEL_DOCK_USB;
-			break;
-
-		case ChannelManager.CHANNEL_DOCK_BT:
-			mChannelDockBT = enable;
-			pref = PREF_CHANNEL_DOCK_BT;
-			break;
-
-		case ChannelManager.CHANNEL_TRAY_USB:
-			mChannelTrayUSB = enable;
-			pref = PREF_CHANNEL_TRAY_USB;
-			break;
-
-		case ChannelManager.CHANNEL_TRAY_BT:
-			mChannelTrayBT = enable;
-			pref = PREF_CHANNEL_TRAY_BT;
-			break;
-
-		case ChannelManager.CHANNEL_CARD_BT:
-			mChannelCardBT = enable;
-			pref = PREF_CHANNEL_CARD_BT;
-			break;
-
-		default:
-			return;
-		}
-
-		SharedPreferences.Editor editor = mPreference.edit();
-		editor.putBoolean(pref, enable);
-		editor.commit();
-	}
+//	public void setChannelEnable(int channel, boolean enable) {
+//
+//		String pref;
+//
+//		switch (channel) {
+//		case ChannelManager.CHANNEL_DOCK_USB:
+//			mChannelDockUSB = enable;
+//			pref = PREF_CHANNEL_DOCK_USB;
+//			break;
+//
+//		case ChannelManager.CHANNEL_DOCK_BT:
+//			mChannelDockBT = enable;
+//			pref = PREF_CHANNEL_DOCK_BT;
+//			break;
+//
+//		case ChannelManager.CHANNEL_TRAY_USB:
+//			mChannelTrayUSB = enable;
+//			pref = PREF_CHANNEL_TRAY_USB;
+//			break;
+//
+//		case ChannelManager.CHANNEL_TRAY_BT:
+//			mChannelTrayBT = enable;
+//			pref = PREF_CHANNEL_TRAY_BT;
+//			break;
+//
+//		case ChannelManager.CHANNEL_CARD_BT:
+//			mChannelCardBT = enable;
+//			pref = PREF_CHANNEL_CARD_BT;
+//			break;
+//
+//		default:
+//			return;
+//		}
+//
+//		SharedPreferences.Editor editor = mPreference.edit();
+//		editor.putBoolean(pref, enable);
+//		editor.commit();
+//	}
 
 	public String getDockBTName() {
 		return mDockBTName;

@@ -1,0 +1,5 @@
+md "F:\chenxin\workspace\posmate\posmate2\sdk\build\intermediates\ndkBuild\release\lib\armeabi-v7a" >NUL 2>NUL || rem
+F:/chenxin/android-sdk_r24.4.1-windows/android-sdk-windows/ndk-bundle/build//../prebuilt/windows-x86_64/bin/echo.exe [armeabi-v7a] "Install        ": "libserial_port.so => F:\chenxin\workspace\posmate\posmate2\sdk\build\intermediates\ndkBuild\release\lib/armeabi-v7a/libserial_port.so"
+copy /b/y "F:\chenxin\workspace\posmate\posmate2\sdk\.externalNativeBuild\ndkBuild\release\obj\local\armeabi-v7a\libserial_port.so" "F:\chenxin\workspace\posmate\posmate2\sdk\build\intermediates\ndkBuild\release\lib\armeabi-v7a\libserial_port.so" > NUL
+F:/chenxin/android-sdk_r24.4.1-windows/android-sdk-windows/ndk-bundle/build//../toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-strip --strip-unneeded  F:\chenxin\workspace\posmate\posmate2\sdk\build\intermediates\ndkBuild\release\lib/armeabi-v7a/libserial_port.so
+process_begin: CreateProcess(NULL, "", ...) failed.

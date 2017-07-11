@@ -23,15 +23,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.cynoware.posmate.R;
+import com.cynoware.posmate.sdk.SDKInfo;
+import com.cynoware.posmate.sdk.SDKLog;
+import com.cynoware.posmate.sdk.util.SharePrefManager;
 
 
 public class MainActivity extends DeviceActivity {
 
 	//private static final String TAG = "PosMate MainActiviy";
-    
+    private static final String TAG = "MainActivity";
 	public static final int REQUEST_ENABLE_BT = 100;
 	//public static final int REQUEST_SETTING_BT_CHANGE = 101; 
 	
@@ -58,7 +59,7 @@ public class MainActivity extends DeviceActivity {
 	FragmentManager mFragmentManager;
 	
 	private Setting mSetting;    
-	public ChannelManager mChannelMgr;
+
 		
     public static boolean ISCONNECTED = false;
     
@@ -79,30 +80,30 @@ public class MainActivity extends DeviceActivity {
     private final BroadcastReceiver mChannelStatusReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (action.equals(BROADCASTING_CHANNEL_STATUS) ) {
-                int channel = intent.getIntExtra("channel", -1 );
-                int status = intent.getIntExtra("status", -1);
-                
-                if( channel == ChannelManager.CHANNEL_DOCK_USB && mImgChannelDockUSB != null ){
-                	if( status == 0 )
-                		mImgChannelDockUSB.setImageResource(R.drawable.channel_dock_usb_0);
-                	else if( status == 1 )
-                		mImgChannelDockUSB.setImageResource(R.drawable.channel_dock_usb_1);
-                }else if( channel == ChannelManager.CHANNEL_TRAY_USB && mImgChannelTrayUSB != null ){
-                	if( status == 0 )
-                		mImgChannelTrayUSB.setImageResource(R.drawable.channel_tray_usb_0);
-                	else if( status == 1 )
-                		mImgChannelTrayUSB.setImageResource(R.drawable.channel_tray_usb_1);
-                }else if( channel == ChannelManager.CHANNEL_DOCK_BT && mImgChannelDockBT != null ){
-                	if( status == 0 )
-                		mImgChannelDockBT.setImageResource(R.drawable.channel_dock_bt_0);
-                	else if( status == 1 )
-                		mImgChannelDockBT.setImageResource(R.drawable.channel_dock_bt_1);
-                }
-            }else if( action.equals(BROADCASTING_BUSY_STATUS) ){
+//            if (action.equals(BROADCASTING_CHANNEL_STATUS) ) {
+//                int channel = intent.getIntExtra("channel", -1 );
+//                int status = intent.getIntExtra("status", -1);
+//
+//                if( channel == ChannelManager.CHANNEL_DOCK_USB && mImgChannelDockUSB != null ){
+//                	if( status == 0 )
+//                		mImgChannelDockUSB.setImageResource(R.drawable.channel_dock_usb_0);
+//                	else if( status == 1 )
+//                		mImgChannelDockUSB.setImageResource(R.drawable.channel_dock_usb_1);
+//                }else if( channel == ChannelManager.CHANNEL_TRAY_USB && mImgChannelTrayUSB != null ){
+//                	if( status == 0 )
+//                		mImgChannelTrayUSB.setImageResource(R.drawable.channel_tray_usb_0);
+//                	else if( status == 1 )
+//                		mImgChannelTrayUSB.setImageResource(R.drawable.channel_tray_usb_1);
+//                }else if( channel == ChannelManager.CHANNEL_DOCK_BT && mImgChannelDockBT != null ){
+//                	if( status == 0 )
+//                		mImgChannelDockBT.setImageResource(R.drawable.channel_dock_bt_0);
+//                	else if( status == 1 )
+//                		mImgChannelDockBT.setImageResource(R.drawable.channel_dock_bt_1);
+//                }
+//            }else if( action.equals(BROADCASTING_BUSY_STATUS) ){
             	boolean busy = intent.getBooleanExtra("busy", false);
             	mImgBusyStatus.setImageResource( busy? R.drawable.busy : R.drawable.ready  );
-            }
+            //}
         }
     };
     
@@ -110,7 +111,9 @@ public class MainActivity extends DeviceActivity {
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);   
+        super.onCreate(savedInstanceState);
+
+		SharePrefManager.getInstance().putInt(SDKInfo.PREF_POS_SET,1);
         //MyApplication.activity = this;
 
 		// Load resource.
@@ -121,9 +124,7 @@ public class MainActivity extends DeviceActivity {
     	mSetting = Setting.getInstance( this );
     	mSetting.loadSetting();
         
-    	// Initialize channel manager
-        mChannelMgr = new ChannelManager(this);
-        mChannelMgr.onCreate();
+
                 
         // Initialize UI.��ʼ��
         initView();
@@ -149,27 +150,28 @@ public class MainActivity extends DeviceActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mChannelMgr.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mChannelMgr.onPause();
     }
     
     @Override
     protected void onDestroy() {
+		unregisterReceiver(mChannelStatusReceiver);
         //unregisterReceiver(broadcastReceiver_);
-        mChannelMgr.onDestroy();
+		SDKLog.i(TAG,"===========MainActyivity onDestory=============");
+		//SDKLog.i(TAG, "===========MainActyivity onDestory=============");
+
         super.onDestroy();
     }
     
-     
+
     public void initView(){
     	
     	mFragmentManager = getFragmentManager();
-    	
+
     	setContentView(R.layout.activity_main);
             
         FragmentTransaction transaction = getFragmentManager().beginTransaction();				
@@ -292,5 +294,5 @@ public class MainActivity extends DeviceActivity {
     	for( int i=0; i<mLayoutEntry.length; i++ ){
     		mLayoutEntry[i].setBackgroundColor( i==entry? mColorFocus:mColorNormal);
     	}		
-    }	
+    }
 }

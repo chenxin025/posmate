@@ -9,17 +9,14 @@
 
 package com.cynoware.posmate;
 
-import com.cynoware.posmate.sdk.Device;
-import com.cynoware.posmate.sdk.GPIO;
-import com.cynoware.posmate.sdk.QrReader;
-import com.cynoware.posmate.sdk.UART;
-import com.cynoware.posmate.sdk.config;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,13 +28,15 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.cynoware.posmate.sdk.listener.ResponseCallBack;
+import com.cynoware.posmate.sdk.listener.ResultCallBack;
 
 
 public class QRScanerFragment extends Fragment {
 	
 	
-    private ChannelManager mChannelMgr;
+    //private ChannelManager mChannelMgr;
     private Setting mSetting;
     private Activity mActivity;
     private static boolean mIsScaning = false;
@@ -56,7 +55,7 @@ public class QRScanerFragment extends Fragment {
 		mSetting = Setting.getInstance(mActivity);
 		
 		// TODO RISK
-		mChannelMgr = ((MainActivity)mActivity).mChannelMgr;
+		//mChannelMgr = ((MainActivity)mActivity).mChannelMgr;
 		
 		View rootView = inflater.inflate(R.layout.activity_qrscaner, container,
 				false);
@@ -69,14 +68,15 @@ public class QRScanerFragment extends Fragment {
 		
 		Spinner spinChannel = (Spinner)rootView.findViewById( R.id.spinnerQRScannerChannel);
     	
-    	
+
+		String channels_4[] = {"Tray USB"};
 		String channels_3[] = { "Dock USB", "Dock Bluetooth", "Tray USB" };
 		String channels_2[] = { "Dock USB", "Dock Bluetooth" };
 		String channels[];
 		
     	String model = mSetting.getPosModel();
     	if(model.equals(Setting.MODEL_NP10))
-    		channels = channels_3;
+    		channels = channels_3;//channels_3;
     	else
     		channels = channels_2;    		
     	
@@ -84,12 +84,12 @@ public class QRScanerFragment extends Fragment {
     	spinChannel.setAdapter((SpinnerAdapter) adapterChannel);
     	
     	int channel = mSetting.getQRScanerChannel();
-    	if( channel == ChannelManager.CHANNEL_DOCK_USB )
-    		spinChannel.setSelection( 0 );
-    	else if( channel == ChannelManager.CHANNEL_DOCK_BT )
-    		spinChannel.setSelection( 1 );
-    	else if( channel == ChannelManager.CHANNEL_TRAY_USB )
-    		spinChannel.setSelection( 2 );    	
+//    	if( channel == ChannelManager.CHANNEL_DOCK_USB )
+//    		spinChannel.setSelection( 0 );
+//    	else if( channel == ChannelManager.CHANNEL_DOCK_BT )
+//    		spinChannel.setSelection( 1 );
+//    	else if( channel == ChannelManager.CHANNEL_TRAY_USB )
+//    		spinChannel.setSelection( 2 );
     	
     	spinChannel.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){    
             
@@ -98,15 +98,15 @@ public class QRScanerFragment extends Fragment {
 					int position, long id) {
 				switch( position ){
 				case 0:
-					mSetting.setQRScanerChannel(ChannelManager.CHANNEL_DOCK_USB);
+					//mSetting.setQRScanerChannel(ChannelManager.CHANNEL_DOCK_USB);
 					break;
 					
 				case 1:
-					mSetting.setQRScanerChannel(ChannelManager.CHANNEL_DOCK_BT);
+					//mSetting.setQRScanerChannel(ChannelManager.CHANNEL_DOCK_BT);
 					break;	
 					
 				case 2:
-					mSetting.setQRScanerChannel(ChannelManager.CHANNEL_TRAY_USB);
+					//mSetting.setQRScanerChannel(ChannelManager.CHANNEL_TRAY_USB);
 					break;
 				}
 			}
@@ -117,19 +117,30 @@ public class QRScanerFragment extends Fragment {
     	});    	
 		
     	mBtnStart = (Button)rootView.findViewById(R.id.btnStart);
-    	mBtnStart.setOnClickListener(new View.OnClickListener() {				
+    	mBtnStart.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				doStartScan();
+				MyApplication.getInstance().getPosService().startScanner(new ResultCallBack() {
+
+					@Override
+					public void onFailed() {
+
+					}
+
+					@Override
+					public void onStrResult(String str) {
+						Log.i("sdk","========================str;"+str);
+					}
+				},new Handler());
 			}
 		});
     	
     	mBtnStop = (Button)rootView.findViewById(R.id.btnStop);
-    	mBtnStop.setEnabled( false );
-    	mBtnStop.setOnClickListener(new View.OnClickListener() {				
+    	//mBtnStop.setEnabled( false );
+    	mBtnStop.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				doStopScan();
+				MyApplication.getInstance().getPosService().closeScanner();
 			}
 		});
     	
@@ -147,83 +158,58 @@ public class QRScanerFragment extends Fragment {
 				mTvTIPScaning.setText( R.string.TIP_Scaning);
 				mLayoutScaning.setVisibility( flag? View.VISIBLE:View.INVISIBLE);
 		    	mBtnStart.setEnabled( !flag );
-		    	mBtnStop.setEnabled( flag );
+		    	//mBtnStop.setEnabled( flag );
 		    	if( flag )
 		    		mTvScanResult.setText("");
 			}} );
 	}
 
-	public void doStartScan(){
-    	
-    	// Choose and check device
-		int channel = mSetting.getQRScanerChannel();
-		
-    	final Device device = mChannelMgr.getDevice( channel );
-    	
-    	if( Util.checkDeviceAvailable(device, mActivity) == false )
-    		return;    	
-    	
-    	// Check busy
-    	if( mChannelMgr.isBusy()) {
-    		Toast.makeText(mActivity, "System busy, please wait...",
-    				Toast.LENGTH_SHORT).show();   
-			return;
-		}
-    	
-    	new Thread() {
-    		public void run() {
-            	mChannelMgr.setBusy( true );
-            	
-            	//QrReader.scannerExists(device, 0);
-            	//QrReader.scannerExists(device, config.CONFIG_TRAY_QRREADER_UART);
-
-            	setScaningUI( mIsScaning = true );
-            	
-            	int port;
-            	if( mSetting.getQRScanerChannel() == ChannelManager.CHANNEL_TRAY_USB  )
-            		port = config.CONFIG_TRAY_QRREADER_UART;
-            	else
-            		port = config.CONFIG_DOCK_QRREADER_UART;
-            	
-            	try{
-				    //QrReader.setRawData(baseDevice, config.CONFIG_DOCK_QRREADER_UART);
-            		
-            		GPIO.output(device, config.CONFIG_FRAME_2D_ENABLE, 1);
-            	            		
-				    while( mIsScaning ){
-				    	UART.setConfig(device, port, 115200, 8, UART.PRRITY_NONE, UART.STOPBITS_1, UART.FLOWCTRL_NONE);
-				    	
-				    	//String str = QrReader.scan(device, config.CONFIG_DOCK_QRREADER_UART, QrReader.TriggerMode_Respond);
-				    	
-				    	QrReader.setScanTriggerMode( device, port, QrReader.TriggerMode_PressKey);//.TriggerMode_Respond );				    	
-				    	
-				    	String str = QrReader.scan(device, port);
-				    	if(str.trim().length() <= 2){
-				        	str = "";
-			        	}
-				    	if (str != null && str.length() > 0){
-				    		
-				    		// TODO 显示结果
-				    		showResult( str );
-				    		// showMessage(MyApplication.activity.getResources().getString(R.string.qrreader)+str,MessageTag.NORMAL);
-				    		// QrReader.stopScan(device, config.CONFIG_DOCK_QRREADER_UART);
-				    		// showMessage(str,MessageTag.DETAIL);
-				    		mIsScaning = false;
-				    	}
-				    }
-				}catch(Exception ex){
-					ex.printStackTrace();
-					// QrReader.stopScan(device, config.CONFIG_DOCK_QRREADER_UART);
-            	}finally{
-            		QrReader.stopScan(device, port);
-            		GPIO.output(device, config.CONFIG_FRAME_2D_ENABLE, 0);
-            	}
-            	
-            	setScaningUI( false );
-            	mChannelMgr.setBusy( false );
-            }
-    	}.start();
-	}
+//	public void doStartScan(){
+//
+//    	// Choose and check device
+//		final DeviceInfo info = Util.getQRScannerInfo(getActivity(),mChannelMgr);
+//    	//if( Utils.checkDeviceAvailable(info.device, mActivity) == false )
+//    	//	return;
+//
+//    	// Check busy
+//    	if( mChannelMgr.isBusy()) {
+//    		Toast.makeText(mActivity, "System busy, please wait...",
+//    				Toast.LENGTH_SHORT).show();
+//			return;
+//		}
+//
+//    	new Thread() {
+//    		public void run() {
+//            	mChannelMgr.setBusy( true );
+//            	setScaningUI( mIsScaning = true );
+//				QrReader.initQrReader(info.device, info.port);
+//				mIsScaning = true;
+//            	try {
+//					while (mIsScaning) {
+//						String str = QrReader.startScan(info.device, info.port,2000);
+//						if (null != str && str.trim().length() <= 2) {
+//							str = "";
+//						}
+//						if (str != null && str.length() > 0) {
+//							// TODO 显示结果
+//							showResult(str);
+//						}
+//					}
+//
+//				}catch(Exception ex){
+//					ex.printStackTrace();
+//					mIsScaning = false;
+//					QrReader.stopScan(info.device, info.port);
+//					QrReader.closeQRScanner(info.device);
+//
+//            	}finally{
+//
+//            	}
+//            	setScaningUI( false );
+//            	mChannelMgr.setBusy( false );
+//            }
+//    	}.start();
+//	}
 	
 	
 	private void showResult(final String result){
@@ -238,22 +224,23 @@ public class QRScanerFragment extends Fragment {
 	}
 	
 	
-	public void doStopScan(){
-		if( mIsScaning == false ){
-			Toast.makeText(mActivity, "Not in scaning", Toast.LENGTH_SHORT).show();
-		}
-		
-		mTvTIPScaning.setText( R.string.TIP_Cancel_Scaning );
-		mBtnStop.setEnabled( false );
-		mIsScaning = false;
-
-		/**
-		 * revised by puzhimin 2016.7.25
-		 * 增加了下面一句 解决界面假死的现象
-		 */
-		setScaningUI(false);
-
-    }    
+//	public void doStopScan(){
+//		mIsScaning = false;
+//		final  DeviceInfo info = Util.getQRScannerInfo(getActivity(),mChannelMgr);
+//		QrReader.stopScan(info.device, info.port);
+//		QrReader.closeQRScanner(info.device);
+//
+//		Toast.makeText(mActivity, "Not in scaning", Toast.LENGTH_SHORT).show();
+//		mTvTIPScaning.setText( R.string.TIP_Cancel_Scaning );
+//		mBtnStop.setEnabled( false );
+//
+//		/**
+//		 * revised by puzhimin 2016.7.25
+//		 * 增加了下面一句 解决界面假死的现象
+//		 */
+//		setScaningUI(false);
+//
+//    }
     
     /*public void startQRScanTask( final Device device, final boolean bStart ) {
     	

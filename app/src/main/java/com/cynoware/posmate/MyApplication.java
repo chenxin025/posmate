@@ -10,20 +10,33 @@
 package com.cynoware.posmate;
 
 import android.app.Application;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.os.IBinder;
+import android.util.Log;
+
+import com.cynoware.posmate.model.CopyAssetsTask;
+import com.cynoware.posmate.sdk.SDKLog;
+import com.cynoware.posmate.sdk.service.OnStatusListener;
+import com.cynoware.posmate.sdk.service.PosService;
+import com.cynoware.posmate.sdk.util.SharePrefManager;
 
 public class MyApplication extends Application {
 	
 	//public static MainActivity activity;
 	public static Context appcontext;
+
+	public static MyApplication mInstance;
 	
 	// private String NLDPath, NLDPath_Image; // APP更新文件夹路径
 	
 	// private SwipResult SwipResult = null; // 刷卡结果
-	private String mVersion;
+	private static String mVersion = null;
 	/*private String NLDPathString = null; // APP更新文件路径
 	private int Ic_pinInput_flag = 0; // 当前做出是否是IC外部输入密码模式，0否，1是
 	private int Open_card_reader_flag = 0; // 当前操作是否是开启读卡器操作，0否，1是
@@ -42,11 +55,17 @@ public class MyApplication extends Application {
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-		
+		mInstance = this;
 		appcontext = this;
-		
+
+
+		SharePrefManager.getInstance().init(this);
 		mVersion = getAppVersion();
-		
+
+		initPosSdk();
+
+		CopyAssetsTask task = new CopyAssetsTask(getApplicationContext());
+		task.execute();
 		/*if (ifSDCardExit()) {
 			NLDPath = "/sdcard/data/data/com.example.mainapp/update";
 			NLDPath_Image = "/sdcard/data/data/com.example.mainapp/image";
@@ -81,6 +100,9 @@ public class MyApplication extends Application {
 		}*/
 	}
 
+	public static MyApplication getInstance(){
+		return mInstance;
+	}
 	/*============================================================================*/
 	/**
 	 * 判断SD卡是否存在
@@ -107,10 +129,71 @@ public class MyApplication extends Application {
 	    }
 	}
 	
-	public String getVersion() {
+	public static String getVersion() {
 		return mVersion;
 	}
 
+
+	public PosService getPosService(){
+		return mPosService;
+	}
+
+	public void initPosSdk(){
+		Intent intent = new Intent(this, PosService.class);
+		bindService(intent,conn,Context.BIND_AUTO_CREATE);
+	}
+
+	private PosService mPosService = null;
+	ServiceConnection conn = new ServiceConnection(){
+
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service) {
+
+			Log.i("sdk","============onServiceConnected===========");
+			mPosService = ((PosService.MyBinder) service).getService();
+			mPosService.setOnStatusListener(new OnStatusListener() {
+				@Override
+				public void onTrayUsbAttached() {
+					Log.i("sdk","============onTrayUsbAttached===========");
+				}
+
+				@Override
+				public void onTrayUsbDetached() {
+					Log.i("sdk","============onTrayUsbDetached===========");
+				}
+
+				@Override
+				public void onDockUsbAttached() {
+					Log.i("sdk","============onDockUsbAttached===========");
+				}
+
+				@Override
+				public void onDockUsbDetached() {
+					Log.i("sdk","============onDockUsbDetached===========");
+				}
+
+				@Override
+				public void onBleAttached() {
+					Log.i("sdk","============onBleAttached===========");
+				}
+
+				@Override
+				public void onBleDetached() {
+
+				}
+
+				@Override
+				public void onBleOpenFailed() {
+
+				}
+			});
+		}
+
+		@Override
+		public void onServiceDisconnected(ComponentName name) {
+
+		}
+	};
 	/*public String getNLDPath() {
 		return NLDPath;
 	}
