@@ -19,8 +19,9 @@ public class SDKInfo {
     public static final int SUCCESS_CODE = 0;
 
 
-    public static final int SERIAL_INDEX0 = 0;//  /dev//dev/ttymxc1
+    //P140 external com
     public static final int SERIAL_INDEX1 = 1;//  /dev//dev/ttymxc1
+    public static final int SERIAL_INDEX2 = 2;//  /dev//dev/ttymxc1
 
     public static final String PREF_POS_SERIALPORT_ID = "pos_led_serial_port";
 

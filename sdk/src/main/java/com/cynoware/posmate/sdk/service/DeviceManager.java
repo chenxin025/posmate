@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.cynoware.posmate.sdk.SDKInfo;
 import com.cynoware.posmate.sdk.bean.LedTextMsg;
@@ -30,6 +31,7 @@ import com.cynoware.posmate.sdk.util.SharePrefManager;
 
 import java.io.IOException;
 
+
 /**
  * Created by john on 2017/1/17.
  */
@@ -42,6 +44,11 @@ public class DeviceManager {
 
     private Printer mPrinter = null;
     private LED mLed = null;
+
+    //Order to show mlitu led in the same time
+    private LED mP140COM1 = null;
+    private LED mP140COM2 = null;
+
     private CashDrawer mCahCashDrawer = null;
 
     private HidDevice mDockUSBDevice = null;
@@ -116,13 +123,17 @@ public class DeviceManager {
         LED led = null;
         int type  = SharePrefManager.getInstance().getInt(SDKInfo.PREF_POS_SET,2);
         led = getLed(type);
+        if (led instanceof P140LedImpl){
+
+        }
         return  led.getSupportComs();
     }
 
 
 
     private LED getLed(int posWhich){
-        if (mLed == null){
+        if (mLed == null && (posWhich == SDKInfo.POS_SET_NP10 ||
+                posWhich == SDKInfo.POS_SET_NP11)){
 
             if (posWhich == SDKInfo.POS_SET_NP10) {
                 int channel = Settings.getInstance(mContext).getmLEDChannel();
@@ -135,24 +146,59 @@ public class DeviceManager {
 
             } else{
 
-                int id = SharePrefManager.getInstance().getInt(SDKInfo.PREF_POS_SERIALPORT_ID,SDKInfo.SERIAL_INDEX1);
-                String path = null;
-                if (id == SDKInfo.SERIAL_INDEX0){
-                    path = "/dev/ttymxc1";
-                }else if (id == SDKInfo.SERIAL_INDEX1){
-                    path = "/dev/ttymxc2";
-                }
-                try {
-                    mLed = new P140LedImpl(path);
-                } catch (IOException e) {
-                    e.printStackTrace();
+//                int id = SharePrefManager.getInstance().getInt(SDKInfo.PREF_POS_SERIALPORT_ID,SDKInfo.SERIAL_INDEX1);
+//                String path = null;
+//                if (id == SDKInfo.SERIAL_INDEX1){
+//                    path = "/dev/ttymxc1";
+//                }else if (id == SDKInfo.SERIAL_INDEX2){
+//                path = "/dev/ttymxc2";
+//            }
+//            try {
+//                mLed = new P140LedImpl(path);
+//            } catch (IOException e) {
+//                    e.printStackTrace();
+//
+//                }
+//
+            }
 
+        }else{
+            String path = null;
+            int id = SharePrefManager.getInstance().getInt(SDKInfo.PREF_POS_SERIALPORT_ID,SDKInfo.SERIAL_INDEX1);
+            Log.i("testg","#################"+id);
+            if (id == SDKInfo.SERIAL_INDEX1){
+                path = "/dev/ttymxc1";
+                if (mP140COM1 == null){
+                    try {
+                        Log.i("testg","##########222#######"+id);
+                        mP140COM1 = new P140LedImpl(path);
+                    } catch (IOException e) {
+                        Log.i("testg","############33#####");
+                        e.printStackTrace();
+                    }
                 }
+                return mP140COM1;
+
+
+            }else if (id == SDKInfo.SERIAL_INDEX2){
+                path = "/dev/ttymxc2";
+                if (mP140COM2 == null){
+                    try {
+                        mP140COM2 = new P140LedImpl(path);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return mP140COM2;
 
             }
 
         }
         return mLed;
+    }
+
+    public void setP140ComId(int which){
+        SharePrefManager.getInstance().putInt(SDKInfo.PREF_POS_SERIALPORT_ID,which);
     }
 
     private CashDrawer getCahCashDrawer(int posWhich){
@@ -237,12 +283,17 @@ public class DeviceManager {
     }
 
     public int  showLedText(int comId, int label, String str){
+
+        Log.i("testg","===============comId============"+comId);
+        SharePrefManager.getInstance().putInt(SDKInfo.PREF_POS_SERIALPORT_ID,comId);
+
         int type  = SharePrefManager.getInstance().getInt(SDKInfo.PREF_POS_SET,2);
         LED led = getLed(type);
         if (led == null){
             return SDKInfo.ERROR_CODE;
         }
         LedTextMsg msg = new LedTextMsg();
+
         msg.setComId(comId);
         msg.setShowType(label);
         msg.setStrNum(str);

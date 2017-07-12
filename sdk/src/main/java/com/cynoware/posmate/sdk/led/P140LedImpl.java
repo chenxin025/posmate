@@ -24,7 +24,8 @@ public class P140LedImpl extends LED {
 
     public P140LedImpl(String path) throws IOException {
 
-        mSerialPort = SerialPort.getInstance(new File(path),2400,0);
+        //mSerialPort = SerialPort.getInstance(new File(path),2400,0);
+        mSerialPort = new SerialPort(new File(path),2400,0);
         mOutputStream = mSerialPort.getOutputStream();
 
     }
@@ -110,4 +111,6 @@ public class P140LedImpl extends LED {
         int[] array = {BaseConfig.COM_PORT_1,BaseConfig.COM_PORT_2};
         return array;
     }
+
+
 }

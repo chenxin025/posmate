@@ -288,6 +288,8 @@ public class PosService extends Service {
         return DeviceManager.getInstance(this).getComIds();
     }
 
+
+
     public void openBle(OnStatusListener listener){
         mOnStatusListener = listener;
         openDevice(PosConstant.CHANNEL_DOCK_BT);

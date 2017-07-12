@@ -327,9 +327,6 @@ public class UsbHandler {
 //		boolean flag = usbManager.hasPermission(mDevice);
 //		SDKLog.i(TAG,"hasPermission==========="+flag);
 
-		Log.i("mmn","@@@@@@@@@@@@@@@="+connection.toString()+ "     connection.getFileDescriptor()="+connection.getFileDescriptor());
-
-		Log.i("mmn","@@@@@@@@@@@@@@@   getSerial  =");
 		int res = connection.controlTransfer(UsbConstants.USB_TYPE_CLASS
 				| UsbConstants.USB_DIR_OUT | USB_REQUEST_TYPE_INTERFACE, 0x09, /*
 																				 * Set
