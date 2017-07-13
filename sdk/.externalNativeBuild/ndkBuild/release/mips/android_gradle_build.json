@@ -1,11 +1,37 @@
 {
   "buildFiles": [
-    "F:\\chenxin\\workspace\\posmate\\posmate2\\sdk\\src\\main\\jni\\Android.mk",
-    "F:\\chenxin\\workspace\\posmate\\posmate2\\sdk\\src\\main\\jni\\Application.mk"
+    "C:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\src\\main\\jni\\Android.mk",
+    "C:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\src\\main\\jni\\Application.mk"
   ],
-  "cleanCommands": [],
-  "libraries": {},
-  "toolchains": {},
-  "cFileExtensions": [],
+  "cleanCommands": [
+    "C:\\android-sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\src\\main\\jni\\Application.mk APP_ABI\u003dmips NDK_ALL_ABIS\u003dmips NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-18 NDK_OUT\u003dC:/Projects/AndroidStudio_workspace/posmate/sdk/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dC:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\build\\intermediates\\ndkBuild\\release\\lib clean"
+  ],
+  "libraries": {
+    "serial_port-release-mips": {
+      "buildCommand": "C:\\android-sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\src\\main\\jni\\Application.mk APP_ABI\u003dmips NDK_ALL_ABIS\u003dmips NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-18 NDK_OUT\u003dC:/Projects/AndroidStudio_workspace/posmate/sdk/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dC:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\build\\intermediates\\ndkBuild\\release\\lib C:/Projects/AndroidStudio_workspace/posmate/sdk/build/intermediates/ndkBuild/release/obj/local/mips/libserial_port.so",
+      "toolchain": "toolchain-mips",
+      "abi": "mips",
+      "artifactName": "serial_port",
+      "files": [
+        {
+          "src": "C:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\src\\main\\jni\\P140Gpio.c",
+          "flags": "\"-gcc-toolchain\" \"C:/android-sdk/ndk-bundle/build//../toolchains/mips64el-linux-android-4.9/prebuilt/windows-x86_64\" \"-target\" \"mipsel-none-linux-android\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fmessage-length\u003d0\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-mips32\" \"-O2\" \"-DNDEBUG\" \"-IC:/Projects/AndroidStudio_workspace/posmate/sdk/src/main/jni\" \"-DANDROID\" \"-D__ANDROID_API__\u003d18\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"--sysroot\" \"C:/android-sdk/ndk-bundle/build//../sysroot\" \"-isystem\" \"C:/android-sdk/ndk-bundle/build//../sysroot/usr/include/mipsel-linux-android\""
+        },
+        {
+          "src": "C:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\src\\main\\jni\\SerialPort.c",
+          "flags": "\"-gcc-toolchain\" \"C:/android-sdk/ndk-bundle/build//../toolchains/mips64el-linux-android-4.9/prebuilt/windows-x86_64\" \"-target\" \"mipsel-none-linux-android\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fmessage-length\u003d0\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-mips32\" \"-O2\" \"-DNDEBUG\" \"-IC:/Projects/AndroidStudio_workspace/posmate/sdk/src/main/jni\" \"-DANDROID\" \"-D__ANDROID_API__\u003d18\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"--sysroot\" \"C:/android-sdk/ndk-bundle/build//../sysroot\" \"-isystem\" \"C:/android-sdk/ndk-bundle/build//../sysroot/usr/include/mipsel-linux-android\""
+        }
+      ],
+      "output": "C:\\Projects\\AndroidStudio_workspace\\posmate\\sdk\\build\\intermediates\\ndkBuild\\release\\obj\\local\\mips\\libserial_port.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-mips": {
+      "cCompilerExecutable": "C:\\android-sdk\\ndk-bundle\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
   "cppFileExtensions": []
 }

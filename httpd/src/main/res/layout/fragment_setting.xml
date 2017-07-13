@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pos Set Type"
+            android:textColor="#999"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="start"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/layoutPosSetNP10"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/posset_selected"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/posset_np10"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutPosSetNP11"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="30dp"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/posset_np11"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutPosSetP140"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="30dp"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/posset_p140"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutInternalPrinter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Internal Printer"
+                android:textColor="#999"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnTestInternalPrinter"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="TEST"
+                    android:textColor="#666"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Scanner"
+                android:textColor="#999"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnTestScanner"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:layout_marginStart="30dp"
+                android:text="TEST"
+                android:textColor="#666"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutCDS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Customer Display"
+                android:textColor="#999"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <CheckBox
+                    android:text="Internal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#666"
+                    android:id="@+id/checkCDSInternal"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:text="External (COM1)"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#666"
+                    android:id="@+id/checkCDSCOM1"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:text="External (COM2)"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#666"
+                    android:id="@+id/checkCDSCOM2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnTestCDS"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="TEST"
+                android:textColor="#666"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+
+<body>
+    <h2 align="center" style="color:#999">Cynoware Web POS Demo</h2>
+    <br/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Device ID</h3>
+                    </div>
+                    <div class="panel-body">
+                        <button id="btn_get_dev_id" type="button" class="btn btn-default">GET</button>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Cash Drawer</h3>
+                    </div>
+                    <div class="panel-body">
+                        <button id="btn_open_cash_drawer" type="button" class="btn btn-default">OPEN</button>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Customer Display</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul id="led_type" class="nav nav-pills">
+                            <li role="presentation" class="active"><a href="#">Total</a></li>
+                            <li role="presentation"><a href="#">Price</a></li>
+                            <li role="presentation"><a href="#">Change</a></li>
+                            <li role="presentation"><a href="#">Collect</a></li>
+                            <li role="presentation"><a href="#">Clear</a></li>
+                        </ul>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-2 col-sm-2 ">
+                                <input id="led_num" type="text" class="form-control" placeholder="Input Number">
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <button id="btn_display_led" type="button" class="btn btn-default">DISPLAY</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Printer</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-2 col-sm-2 ">
+                                <input id="print_content" type="text" class="form-control" placeholder="Input Content">
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <button id="btn_print" type="button" class="btn btn-default">PRINT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Scanner</h3>
+                    </div>
+                    <div class="panel-body">
+                        <button id="btn_scan" type="button" class="btn btn-default">SCAN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Standard button -->
+</body>
+<script>
+function open_cash_drawer() {
+    $.get("cashdrawer", function(data, status) {
+        if (status != 'success')
+            alert("Data: " + data + "\nStatus: " + status);
+    });
+}
+
+function display_led() {
+
+    type = ($("#led_type .active").first().text()).toLowerCase();
+    num = $("#led_num").val();
+    url = "led?type=" + type + "&num=" + num;
+
+    $.get(url, function(data, status) {
+        if (status != 'success')
+            alert("Data: " + data + "\nStatus: " + status);
+    });
+}
+
+function print_text() {
+
+    content = $("#print_content").val();
+    url = "print?content=" + content;
+
+    $.get(url, function(data, status) {
+        if (status != 'success')
+            alert("Data: " + data + "\nStatus: " + status);
+    });
+}
+
+function scan() {
+    $.get("scan", function(data, status) {
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+}
+
+
+function get_dev_id(){
+	$.get("deviceid", function(data, status) {
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+}
+
+
+$(document).ready(function() {
+
+	$("#btn_get_dev_id").click(function() {
+        get_dev_id();
+    });
+
+    $("#btn_display_led").click(function() {
+        display_led();
+    });
+
+    $("#led_type li").click(function() {
+        $("#led_type .active").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    $("#btn_open_cash_drawer").click(function() {
+        open_cash_drawer();
+    });
+
+    $("#btn_print").click(function() {
+        print_text();
+    });
+
+    $("#btn_scan").click(function() {
+        scan();
+    });
+});
+</script>
+
+</html>

@@ -5,6 +5,7 @@
 build/
 app/build/
 sdk/build/
+sdk/.externalNativeBuild/
 *.aar
 *.iml
 *.jks
