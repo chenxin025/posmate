@@ -29,8 +29,8 @@
 
             <LinearLayout
                 android:id="@+id/layoutPosSetNP10"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="30dp"
                 android:background="@drawable/posset_selected"
                 android:orientation="vertical"
@@ -46,8 +46,8 @@
 
             <LinearLayout
                 android:id="@+id/layoutPosSetNP11"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="30dp"
                 android:orientation="vertical"
                 android:padding="6dp">
@@ -63,8 +63,8 @@
 
             <LinearLayout
                 android:id="@+id/layoutPosSetP140"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="30dp"
                 android:orientation="vertical"
                 android:padding="6dp">
@@ -77,6 +77,41 @@
                     />
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutCashDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Cash Drawer"
+                android:textColor="#999"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnTestCashDrawer"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="TEST"
+                    android:textColor="#666"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
         </LinearLayout>
 
 
@@ -159,39 +194,39 @@
                 android:textColor="#999"
                 android:textSize="18sp" />
 
-            <LinearLayout
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+            <!--<LinearLayout-->
+                <!--android:layout_width="400dp"-->
+                <!--android:layout_height="60dp"-->
+                <!--android:layout_marginStart="30dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
 
 
-                <CheckBox
-                    android:text="Internal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#666"
-                    android:id="@+id/checkCDSInternal"
-                    android:layout_weight="1" />
+                <!--<CheckBox-->
+                    <!--android:text="Internal"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="#666"-->
+                    <!--android:id="@+id/checkCDSInternal"-->
+                    <!--android:layout_weight="1" />-->
 
-                <CheckBox
-                    android:text="External (COM1)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#666"
-                    android:id="@+id/checkCDSCOM1"
-                    android:layout_weight="1" />
+                <!--<CheckBox-->
+                    <!--android:text="External (COM1)"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="#666"-->
+                    <!--android:id="@+id/checkCDSCOM1"-->
+                    <!--android:layout_weight="1" />-->
 
-                <CheckBox
-                    android:text="External (COM2)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#666"
-                    android:id="@+id/checkCDSCOM2"
-                    android:layout_weight="1" />
-            </LinearLayout>
+                <!--<CheckBox-->
+                    <!--android:text="External (COM2)"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="#666"-->
+                    <!--android:id="@+id/checkCDSCOM2"-->
+                    <!--android:layout_weight="1" />-->
+            <!--</LinearLayout>-->
 
 
             <Button

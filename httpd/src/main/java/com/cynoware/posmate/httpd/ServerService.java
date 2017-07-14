@@ -29,6 +29,7 @@ import com.cynoware.posmate.sdk.led.LED;
 import com.cynoware.posmate.sdk.listener.ResponseCallBack;
 import com.cynoware.posmate.sdk.listener.ResultCallBack;
 import com.cynoware.posmate.sdk.printer.Printer;
+import com.cynoware.posmate.sdk.service.DeviceManager;
 import com.cynoware.posmate.sdk.service.OnStatusListener;
 import com.cynoware.posmate.sdk.service.PosService;
 import com.cynoware.posmate.sdk.util.SharePrefManager;
@@ -105,6 +106,9 @@ public class ServerService extends PosService {
 
     @Override
     public void onCreate() {
+
+        Log.d(LOG_TAG, "Service onCreate");
+
         mContentManager = ContentManager.getInstance();
         mContentManager.init(getResources());
         mHandler = new Handler();
@@ -114,7 +118,6 @@ public class ServerService extends PosService {
         mSuite = mPreference.getInt(PREF_SUITE, getCurrentSuite());
         mCDS = mPreference.getInt(PREF_CDS, DEFAULT_CDS);
 
-        setSuite(SUITE_NP10);
         setOnStatusListener(mOnStatusListener);
 
         IntentFilter filter = new IntentFilter();
@@ -126,9 +129,10 @@ public class ServerService extends PosService {
         super.onCreate();
     }
 
+
     private int getCurrentSuite() {
         String mode = android.os.Build.MODEL;
-        ;
+
         if (mode.equals("SABRESD-MX6DQ"))
             return SUITE_P140;
         else
@@ -152,7 +156,10 @@ public class ServerService extends PosService {
 
     @Override
     public void onDestroy() {
+        Log.d(LOG_TAG, "Service onDestroy");
         super.onDestroy();
+        closeDevice(0);
+        closeDevice(2);
     }
 
 
@@ -165,22 +172,23 @@ public class ServerService extends PosService {
     private OnStatusListener mOnStatusListener = new OnStatusListener() {
         @Override
         public void onTrayUsbAttached() {
-            setIsTrayUsbAttached(true);
             Log.i(LOG_TAG, "Tray Usb Attached");
+            setIsTrayUsbAttached(true);
             Intent intent = new Intent(ACTION_TRAY_USB_ATTACHED);
             sendBroadcast(intent);
         }
 
         @Override
         public void onTrayUsbDetached() {
-            setIsTrayUsbAttached(false);
             Log.i(LOG_TAG, "Tray Usb Detached");
+            setIsTrayUsbAttached(false);
             Intent intent = new Intent(ACTION_TRAY_USB_DETACHED);
             sendBroadcast(intent);
         }
 
         @Override
         public void onDockUsbAttached() {
+            Log.i(LOG_TAG, "Dock Usb Attached");
             setIsDockUsbAttached(true);
             Toast.makeText(ServerService.this, "POS Attached", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ACTION_DOCK_USB_ATTACHED);
@@ -189,6 +197,7 @@ public class ServerService extends PosService {
 
         @Override
         public void onDockUsbDetached() {
+            Log.i(LOG_TAG, "Dock Usb Detached");
             setIsDockUsbAttached(false);
             Toast.makeText(ServerService.this, "POS Detached", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ACTION_DOCK_USB_DETACHED);
@@ -197,7 +206,6 @@ public class ServerService extends PosService {
 
         @Override
         public void onBleAttached() {
-//                    Log.i(LOG_TAG, "Ble Attached");
         }
 
         @Override
@@ -235,10 +243,10 @@ public class ServerService extends PosService {
 
     private void startServer() {
 
-        Log.d("ServerService", "Starting server ...");
+        Log.d(LOG_TAG, "Starting server ...");
 
         if (isServerRunning()) {
-            Log.e("ServerService", "Server is already running");
+            Log.e(LOG_TAG, "Server is already running");
 
             broadcast(ACTION_SERVER_STARTED);
             return;
@@ -277,14 +285,14 @@ public class ServerService extends PosService {
 
 
     public void stopServer() {
-        Log.d("ServerService", "Stopping server");
+        Log.d(LOG_TAG, "Stopping server");
 
         if (mHttpServer != null) {
             mHttpServer.stop();
             broadcast(ACTION_SERVER_STOPPED);
             mHttpServer = null;
         } else {
-            Log.e("ServerService", "null LSPServer instance");
+            Log.e(LOG_TAG, "null HttpServer instance");
         }
     }
 
@@ -365,6 +373,9 @@ public class ServerService extends PosService {
         startScanner(callBack, mHandler);
     }
 
+    public void startScann(ResultCallBack callBack){
+        DeviceManager.getInstance(this).doScann(callBack);
+    }
 
     public boolean getCDS(int com) {
         return (mCDS & com) != 0;
@@ -394,12 +405,10 @@ public class ServerService extends PosService {
         showLedText(com, type, num, new ResponseCallBack() {
             @Override
             public void onSuccess() {
-
             }
 
             @Override
             public void onFailed() {
-                //Toast.makeText(mContext, "请检查是否已经连接客显设备！", Toast.LENGTH_SHORT).show();
             }
         }, mHandler);
     }

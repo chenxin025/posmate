@@ -17,8 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -32,12 +30,14 @@ public class SettingFragment extends Fragment {
     private LinearLayout mLayoutNP10, mLayoutNP11, mLayoutP140;
     private Drawable mDrawableNormal, mDrawableSelected;
     private LinearLayout mLayoutInternalPrinter, mLayoutScanner, mLayoutCDS;
-    private CheckBox mCheckCDSInternal, mCheckCDSCOM1, mCheckCDSCOM2;
+//    private CheckBox mCheckCDSInternal, mCheckCDSCOM1, mCheckCDSCOM2;
     private ProgressDialogHelper mProgressDialogHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mMainActivity = (MainActivity) getActivity();
+
+        ServerService service = mMainActivity.getServerService();
 
         mProgressDialogHelper = new ProgressDialogHelper(mMainActivity);
 
@@ -76,6 +76,17 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        Button btnTestCashDrawer = (Button) rootView.findViewById(R.id.btnTestCashDrawer);
+        btnTestCashDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ServerService service = mMainActivity.getServerService();
+                if (service != null) {
+                    service.openCachDrawer(null, service.getHandler());
+                }
+            }
+        });
+
         Button btnTestPrinter = (Button) rootView.findViewById(R.id.btnTestInternalPrinter);
         btnTestPrinter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +97,6 @@ public class SettingFragment extends Fragment {
                 }
             }
         });
-
 
         Button btnTestScanner = (Button) rootView.findViewById(R.id.btnTestScanner);
         btnTestScanner.setOnClickListener(new View.OnClickListener() {
@@ -122,50 +132,45 @@ public class SettingFragment extends Fragment {
             }
         });
 
-
-        mCheckCDSInternal = (CheckBox) rootView.findViewById(R.id.checkCDSInternal);
-        mCheckCDSCOM1 = (CheckBox) rootView.findViewById(R.id.checkCDSCOM1);
-        mCheckCDSCOM2 = (CheckBox) rootView.findViewById(R.id.checkCDSCOM2);
-
-        ServerService service = mMainActivity.getServerService();
-        if (service != null) {
-            mCheckCDSInternal.setChecked(service.getCDS(ServerService.COM_0));
-            mCheckCDSCOM1.setChecked(service.getCDS(ServerService.COM_1));
-            mCheckCDSCOM2.setChecked(service.getCDS(ServerService.COM_2));
-        }
-
-
-        mCheckCDSInternal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ServerService service = mMainActivity.getServerService();
-                if (service != null) {
-                    service.setCDS(ServerService.COM_0, isChecked);
-                }
-            }
-        });
-
-
-        mCheckCDSCOM1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ServerService service = mMainActivity.getServerService();
-                if (service != null) {
-                    service.setCDS(ServerService.COM_1, isChecked);
-                }
-            }
-        });
-
-
-        mCheckCDSCOM2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ServerService service = mMainActivity.getServerService();
-                if (service != null) {
-                    service.setCDS(ServerService.COM_2, isChecked);
-                }
-            }
-        });
+//        mCheckCDSInternal = (CheckBox) rootView.findViewById(R.id.checkCDSInternal);
+//        mCheckCDSCOM1 = (CheckBox) rootView.findViewById(R.id.checkCDSCOM1);
+//        mCheckCDSCOM2 = (CheckBox) rootView.findViewById(R.id.checkCDSCOM2);
+//        if (service != null) {
+//            mCheckCDSInternal.setChecked(service.getCDS(ServerService.COM_0));
+//            mCheckCDSCOM1.setChecked(service.getCDS(ServerService.COM_1));
+//            mCheckCDSCOM2.setChecked(service.getCDS(ServerService.COM_2));
+//        }
+//
+//
+//        mCheckCDSInternal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                ServerService service = mMainActivity.getServerService();
+//                if (service != null) {
+//                    service.setCDS(ServerService.COM_0, isChecked);
+//                }
+//            }
+//        });
+//
+//        mCheckCDSCOM1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                ServerService service = mMainActivity.getServerService();
+//                if (service != null) {
+//                    service.setCDS(ServerService.COM_1, isChecked);
+//                }
+//            }
+//        });
+//
+//        mCheckCDSCOM2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                ServerService service = mMainActivity.getServerService();
+//                if (service != null) {
+//                    service.setCDS(ServerService.COM_2, isChecked);
+//                }
+//            }
+//        });
 
         Button btnTestCDS = (Button) rootView.findViewById(R.id.btnTestCDS);
         btnTestCDS.setOnClickListener(new View.OnClickListener() {
@@ -180,8 +185,7 @@ public class SettingFragment extends Fragment {
             }
         });
 
-        setSuite(mMainActivity.getServerService().getSuite());
-
+        setSuite(service.getSuite());
         return rootView;
     }
 
@@ -205,9 +209,9 @@ public class SettingFragment extends Fragment {
             mLayoutScanner.setVisibility(View.VISIBLE);
 
             mLayoutCDS.setVisibility(View.VISIBLE);
-            mCheckCDSInternal.setVisibility(View.VISIBLE);
-            mCheckCDSCOM1.setVisibility(View.VISIBLE);
-            mCheckCDSCOM2.setVisibility(View.VISIBLE);
+//            mCheckCDSInternal.setVisibility(View.VISIBLE);
+//            mCheckCDSCOM1.setVisibility(View.VISIBLE);
+//            mCheckCDSCOM2.setVisibility(View.VISIBLE);
 
         } else if (suite == ServerService.SUITE_NP11) {
             mLayoutNP10.setBackground(mDrawableNormal);
@@ -218,9 +222,9 @@ public class SettingFragment extends Fragment {
             mLayoutScanner.setVisibility(View.VISIBLE);
 
             mLayoutCDS.setVisibility(View.VISIBLE);
-            mCheckCDSInternal.setVisibility(View.VISIBLE);
-            mCheckCDSCOM1.setVisibility(View.VISIBLE);
-            mCheckCDSCOM2.setVisibility(View.GONE);
+//            mCheckCDSInternal.setVisibility(View.VISIBLE);
+//            mCheckCDSCOM1.setVisibility(View.VISIBLE);
+//            mCheckCDSCOM2.setVisibility(View.GONE);
 
 
         } else if (suite == ServerService.SUITE_P140) {
@@ -232,9 +236,9 @@ public class SettingFragment extends Fragment {
             mLayoutScanner.setVisibility(View.GONE);
 
             mLayoutCDS.setVisibility(View.VISIBLE);
-            mCheckCDSInternal.setVisibility(View.GONE);
-            mCheckCDSCOM1.setVisibility(View.VISIBLE);
-            mCheckCDSCOM2.setVisibility(View.VISIBLE);
+//            mCheckCDSInternal.setVisibility(View.GONE);
+//            mCheckCDSCOM1.setVisibility(View.VISIBLE);
+//            mCheckCDSCOM2.setVisibility(View.VISIBLE);
         }
     }
 }

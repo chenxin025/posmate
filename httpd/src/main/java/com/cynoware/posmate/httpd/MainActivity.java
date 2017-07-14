@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
     private ServerService mServerService = null;
     private boolean mIsServiceBound;
 
-    private String[] mMenuTitle = {"Status", "Setting", "Log"};
+    private String[] mMenuTitle = {"Status", "Setting", "Exit"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,10 +119,6 @@ public class MainActivity extends Activity {
         public void onServiceDisconnected(ComponentName arg0) {
             Log.d(LOG_TAG, "Service disconnected");
             mIsServiceBound = false;
-//            if (mServerService != null) {
-//                mServerService.closeDevice(0);
-//                mServerService.closeDevice(2);
-//            }
             mServerService = null;
             Intent intent = new Intent(ACTION_SERVICE_UNBIND);
             sendBroadcast(intent);

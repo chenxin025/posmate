@@ -1,10 +1,8 @@
 package com.cynoware.posmate.sdk.service;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.cynoware.posmate.sdk.SDKInfo;
@@ -365,6 +363,42 @@ public class DeviceManager {
     public void closeScannerMsg(){
         mIsScanning = false;
     }
+
+
+    public void doScann(final ResultCallBack callBack){
+        int channel = Settings.getInstance(mContext).getmQRScanerChannel();
+        int port = BaseConfig.CONFIG_TRAY_QRREADER_UART;
+        QrReader.initQrReader(getDevice(channel),port);
+        mIsScanning = true;
+        try {
+            while (mIsScanning) {
+                String str = QrReader.startScan(getDevice(channel), port,2000);
+                if (null != str && str.trim().length() <= 2) {
+                    str = "";
+                }
+                if (str != null && str.length() > 0) {
+                    // TODO 显示结果
+                    final String showStr = str;
+                    if(callBack != null){
+                      callBack.onStrResult(showStr);
+                    }
+
+                    mIsScanning = false;
+                }
+            }
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+            if (callBack != null){
+                callBack.onFailed();
+            }
+        }finally {
+            QrReader.stopScan(getDevice(channel), port);
+            QrReader.closeQRScanner(getDevice(channel));
+            mIsScanning = false;
+        }
+    }
+
 
 
     //==============================CachDrawer================================

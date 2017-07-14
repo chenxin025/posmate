@@ -29,7 +29,6 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpRequest;
-import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpUtil;
 import io.netty.util.AsciiString;
 
@@ -37,7 +36,13 @@ import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 public class HttpServerHandler extends ChannelInboundHandlerAdapter {
-    private static final byte[] CONTENT = {'o', 'k'};
+    private static final int CODE_OK = 0;
+    private static final int CODE_NOT_SUPPORT = 1;
+    private static final int CODE_EXECUTE_FAIL = 2;
+
+    private static final String MSG_OK = "OK";
+    private static final String MSG_NOT_SUPPORT = "Not Support";
+    private static final String MSG_EXECUTE_FAIL = "Execute Fail";
 
     private static final AsciiString CONTENT_TYPE = new AsciiString("Content-Type");
     private static final AsciiString CONTENT_LENGTH = new AsciiString("Content-Length");
@@ -90,7 +95,6 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
             e.printStackTrace();
         }
 
-
         if( url == null )
             return;
 
@@ -127,25 +131,23 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
     }
 
 
-    private void responseOK(ChannelHandlerContext ctx, boolean isKeepAlive) {
-        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(CONTENT));
-        response.headers().set(CONTENT_TYPE, "text/plain");
+    private void response(ChannelHandlerContext ctx, HttpRequest req, int code, String msg, String data ) {
+        String content = "result({\"code\":" + code;
+
+        if( msg != null && !msg.isEmpty() )
+            content += ",\"msg\":\"" + msg + "\"";
+
+        if( data != null && !data.isEmpty() )
+            content += ",\"data\":" + data;
+
+        content += "})";
+
+        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(content.getBytes()));
+        response.headers().set(CONTENT_TYPE, "application/javascript");
         response.headers().setInt(CONTENT_LENGTH, response.content().readableBytes());
 
-        if (!isKeepAlive) {
-            ctx.write(response).addListener(ChannelFutureListener.CLOSE);
-        } else {
-            response.headers().set(CONNECTION, KEEP_ALIVE);
-            ctx.write(response);
-        }
-    }
 
-    private void responseFail(ChannelHandlerContext ctx, boolean isKeepAlive) {
-        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, HttpResponseStatus.INTERNAL_SERVER_ERROR, Unpooled.wrappedBuffer(CONTENT));
-        response.headers().set(CONTENT_TYPE, "text/plain");
-        response.headers().setInt(CONTENT_LENGTH, response.content().readableBytes());
-
-        if (!isKeepAlive) {
+        if (!HttpUtil.isKeepAlive(req)) {
             ctx.write(response).addListener(ChannelFutureListener.CLOSE);
         } else {
             response.headers().set(CONNECTION, KEEP_ALIVE);
@@ -156,16 +158,10 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
     private void doReturnDeviceID( ChannelHandlerContext ctx, HttpRequest req ){
 
         String devID = mServerService.getDeviceID();
-        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(devID.getBytes()));
-        response.headers().set(CONTENT_TYPE, "text/html");
-        response.headers().setInt(CONTENT_LENGTH, response.content().readableBytes());
 
-        if (!HttpUtil.isKeepAlive(req)) {
-            ctx.write(response).addListener(ChannelFutureListener.CLOSE);
-        } else {
-            response.headers().set(CONNECTION, KEEP_ALIVE);
-            ctx.write(response);
-        }
+        String data = "{\"device_id\":\"" + devID + "\"}";
+
+        response(ctx, req, CODE_OK, MSG_OK, data );
     }
 
 
@@ -187,7 +183,7 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
 
     private void doOpenCashDrawer(ChannelHandlerContext ctx, HttpRequest req){
             mServerService.openCachDrawer(null, mServerService.getHandler());
-            responseOK(ctx, HttpUtil.isKeepAlive(req));
+            response(ctx, req, CODE_OK, MSG_OK, null );
     }
 
 
@@ -220,14 +216,20 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
         mServerService.showLedText(BaseConfig.COM_PORT_1, type, paramNum, null, mServerService.getHandler() );
         mServerService.showLedText(BaseConfig.COM_PORT_2, type, paramNum, null, mServerService.getHandler() );
 
-        responseOK(ctx, HttpUtil.isKeepAlive(req));
+        response(ctx, req, CODE_OK, MSG_OK, null );
     }
 
 
     private void doPrint(ChannelHandlerContext ctx, Map params, HttpRequest req){
 
+        if( mServerService.getSuite() != ServerService.SUITE_NP10 ) {
+            response(ctx, req, CODE_NOT_SUPPORT, MSG_NOT_SUPPORT, null);
+            return;
+        }
+
+
         String paramContent = (String)params.get("content");
-        responseOK(ctx, HttpUtil.isKeepAlive(req));
+        response(ctx, req, CODE_OK, MSG_OK, null);
 
         if( paramContent == null ){
             return;
@@ -247,25 +249,22 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
     }
 
     private void doScan(final ChannelHandlerContext ctx, Map params, final HttpRequest req){
-        mServerService.startScanner(new ResultCallBack() {
+        if( mServerService.getSuite() == ServerService.SUITE_P140 ) {
+            response(ctx, req, CODE_NOT_SUPPORT, MSG_NOT_SUPPORT, null );
+            return;
+        }
+
+        mServerService.startScann(new ResultCallBack() {
             @Override
             public void onFailed() {
-                responseFail(ctx, HttpUtil.isKeepAlive(req));
+                response(ctx, req, CODE_EXECUTE_FAIL, MSG_EXECUTE_FAIL, null);
             }
 
             @Override
             public void onStrResult(String s) {
-                FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(s.getBytes()));
-                response.headers().set(CONTENT_TYPE, "text/plain");
-                response.headers().setInt(CONTENT_LENGTH, response.content().readableBytes());
-
-                if (!HttpUtil.isKeepAlive(req)) {
-                    ctx.write(response).addListener(ChannelFutureListener.CLOSE);
-                } else {
-                    response.headers().set(CONNECTION, KEEP_ALIVE);
-                    ctx.write(response);
-                }
+                String data = "{\"scan_result\":\"" + s + "\"}";
+                response(ctx, req, CODE_OK, MSG_OK, data );
             }
-        }, mServerService.getHandler());
+        });
     }
 }

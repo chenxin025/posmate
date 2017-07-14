@@ -84,47 +84,118 @@
     <!-- Standard button -->
 </body>
 <script>
+
+var api_root = 'http://127.0.0.1:8080/';
+
+
 function open_cash_drawer() {
-    $.get("cashdrawer", function(data, status) {
-        if (status != 'success')
-            alert("Data: " + data + "\nStatus: " + status);
-    });
+    
+    api_url = api_root + "cashdrawer";
+
+    $.ajax({
+             type: "get",
+             async: false,
+             url: api_url,
+             dataType: "jsonp",
+             jsonp: "callback",
+             jsonpCallback:"result",
+             success: function(json){
+             	if( json.code != 0 )
+                 	alert('code: ' + json.code + ' msg: ' + json.msg);
+             },
+             error: function(){
+                 alert('fail');
+             }
+         });
 }
 
 function display_led() {
-
+	
     type = ($("#led_type .active").first().text()).toLowerCase();
     num = $("#led_num").val();
-    url = "led?type=" + type + "&num=" + num;
+    api_url = api_root + "led?type=" + type + "&num=" + num;
 
-    $.get(url, function(data, status) {
-        if (status != 'success')
-            alert("Data: " + data + "\nStatus: " + status);
-    });
+    $.ajax({
+             type: "get",
+             async: false,
+             url: api_url,
+             dataType: "jsonp",
+             jsonp: "callback",
+             jsonpCallback:"result",
+             success: function(json){
+             	if( json.code != 0 )
+             		alert('code: ' + json.code + ' msg: ' + json.msg);
+             },
+             error: function(){
+                 alert('fail');
+             }
+         });
 }
 
 function print_text() {
-
     content = $("#print_content").val();
-    url = "print?content=" + content;
+    api_url = api_root + "print?content=" + content;
 
-    $.get(url, function(data, status) {
-        if (status != 'success')
-            alert("Data: " + data + "\nStatus: " + status);
-    });
+    $.ajax({
+             type: "get",
+             async: false,
+             url: api_url,
+             dataType: "jsonp",
+             jsonp: "callback",
+             jsonpCallback:"result",
+             success: function(json){
+             	if( json.code != 0 )
+                 	alert('code: ' + json.code + ' msg: ' + json.msg);
+             },
+             error: function(){
+                 alert('fail');
+             }
+         });
 }
 
 function scan() {
-    $.get("scan", function(data, status) {
-        alert("Data: " + data + "\nStatus: " + status);
-    });
+    api_url = api_root + "scan";
+
+    $.ajax({
+             type: "get",
+             async: false,
+             url: api_url,
+             dataType: "jsonp",
+             jsonp: "callback",
+             jsonpCallback:"result",
+             success: function(json){
+             	if( json.code == 0 )
+             		alert( "scan_result: " + json.data.scan_result );
+             	else
+                 	alert('code: ' + json.code + ' msg: ' + json.msg);
+             },
+             error: function(){
+                 alert('fail');
+             }
+         });
 }
 
 
 function get_dev_id(){
-	$.get("deviceid", function(data, status) {
-        alert("Data: " + data + "\nStatus: " + status);
-    });
+    api_url = api_root + "deviceid";
+
+    $.ajax({
+             type: "get",
+             async: false,
+             url: api_url,
+             dataType: "jsonp",
+             jsonp: "callback",
+             jsonpCallback:"result",
+             success: function(json){
+             	if( json.code == 0 )
+             		alert( "device_id: " + json.data.device_id );
+             	else
+                 	alert('code: ' + json.code + ' msg: ' + json.msg);
+             },
+             error: function(){
+                 alert('fail');
+             }
+         });
 }
 
 
