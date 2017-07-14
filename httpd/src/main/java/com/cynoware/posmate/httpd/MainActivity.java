@@ -13,6 +13,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -20,6 +22,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -67,6 +70,9 @@ public class MainActivity extends Activity {
     private void initViews() {
         setContentView(R.layout.activity_main);
 
+        TextView tvVersion = (TextView) findViewById(R.id.tvVersion);
+        tvVersion.setText(getAppVersionName(this));
+
         Fragment statusFragment = new StatusFragment();
         loadFragment(statusFragment);
 
@@ -92,6 +98,21 @@ public class MainActivity extends Activity {
                 }
             }
         });
+    }
+
+    public static String getAppVersionName(Context context) {
+        try {
+            PackageManager manager = context.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+            if (null != info) {
+                return info.versionName;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+        return null;
     }
 
 

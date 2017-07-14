@@ -29,8 +29,8 @@
 
             <LinearLayout
                 android:id="@+id/layoutPosSetNP10"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginStart="30dp"
                 android:background="@drawable/posset_selected"
                 android:orientation="vertical"
@@ -46,8 +46,8 @@
 
             <LinearLayout
                 android:id="@+id/layoutPosSetNP11"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginStart="30dp"
                 android:orientation="vertical"
                 android:padding="6dp">
@@ -63,8 +63,8 @@
 
             <LinearLayout
                 android:id="@+id/layoutPosSetP140"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginStart="30dp"
                 android:orientation="vertical"
                 android:padding="6dp">
@@ -105,7 +105,7 @@
                     android:id="@+id/btnTestCashDrawer"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:paddingStart="10dp"
                     android:text="TEST"
                     android:textColor="#666"
@@ -141,7 +141,7 @@
                     android:id="@+id/btnTestInternalPrinter"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:paddingStart="10dp"
                     android:text="TEST"
                     android:textColor="#666"
@@ -169,7 +169,7 @@
                 android:id="@+id/btnTestScanner"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:paddingStart="10dp"
                 android:layout_marginStart="30dp"
                 android:text="TEST"
@@ -234,7 +234,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:paddingStart="10dp"
                 android:text="TEST"
                 android:textColor="#666"

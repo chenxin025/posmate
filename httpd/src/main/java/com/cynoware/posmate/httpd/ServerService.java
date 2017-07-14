@@ -16,6 +16,7 @@ import android.content.SharedPreferences;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
@@ -50,7 +51,7 @@ public class ServerService extends PosService {
 
     public static final int PORT = 7777;
 
-    private static final int SERVER_NOTIFICATION_ID = 101;
+    private static final int SERVER_NOTIFICATION_ID = 111;
 
     private HttpServer mHttpServer;
     private Handler mHandler;
@@ -78,6 +79,8 @@ public class ServerService extends PosService {
     private boolean mIsTrayUsbAttached;
 
     private SharedPreferences mPreference;
+
+    private PowerManager.WakeLock mWakeLock;
 
     // Binder given to clients
     private final IBinder mBinder = new LocalBinder();
@@ -109,6 +112,10 @@ public class ServerService extends PosService {
 
         Log.d(LOG_TAG, "Service onCreate");
 
+//        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+//        mWakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "PosMate");
+//        mWakeLock.acquire();
+
         mContentManager = ContentManager.getInstance();
         mContentManager.init(getResources());
         mHandler = new Handler();
@@ -129,6 +136,12 @@ public class ServerService extends PosService {
         super.onCreate();
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i(LOG_TAG, "onStartCommand");
+        return START_STICKY;
+    }
+
 
     private int getCurrentSuite() {
         String mode = android.os.Build.MODEL;
@@ -145,7 +158,8 @@ public class ServerService extends PosService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
         Notification notification = new Notification.Builder(this)
-                .setContentTitle("POS Server")
+                .setContentTitle("Posmate Server")
+                .setSmallIcon(R.drawable.service)
                 .setContentText(message)
                 .setContentIntent(pendingIntent)
                 .build();
@@ -160,14 +174,8 @@ public class ServerService extends PosService {
         super.onDestroy();
         closeDevice(0);
         closeDevice(2);
+//        mWakeLock.release();
     }
-
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
-    }
-
 
     private OnStatusListener mOnStatusListener = new OnStatusListener() {
         @Override
