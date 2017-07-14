@@ -160,7 +160,7 @@ public class DeviceManager {
 //
             }
 
-        }else{
+        }else if (posWhich == SDKInfo.POS_SET_P140){
             String path = null;
             int id = SharePrefManager.getInstance().getInt(SDKInfo.PREF_POS_SERIALPORT_ID,SDKInfo.SERIAL_INDEX1);
             Log.i("testg","#################"+id);
