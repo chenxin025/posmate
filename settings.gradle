@@ -1,1 +1,2 @@
-include ':app', ':sdk', ':httpd'
+include ':app', ':sdk', ':httpd', ':'
+include ':dualTouch'
