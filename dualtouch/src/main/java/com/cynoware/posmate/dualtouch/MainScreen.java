@@ -1,4 +1,4 @@
-package com.example.dualtouch;
+package com.cynoware.posmate.dualtouch;
 
 import android.app.Activity;
 import android.app.Presentation;

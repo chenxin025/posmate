@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "com.cynoware.posmate.dualtouch"
+        applicationId "com.cynoware.posmate.firmwareupdater"
         minSdkVersion 22
         targetSdkVersion 25
         versionCode 1
