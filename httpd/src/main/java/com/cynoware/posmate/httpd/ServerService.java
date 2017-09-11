@@ -89,8 +89,8 @@ public class ServerService extends PosService {
      * Class used for the client Binder.  Because we know this service always
      * runs in the same process as its clients, we don't need to deal with IPC.
      */
-    class LocalBinder extends Binder {
-        ServerService getService() {
+    public class LocalBinder extends Binder {
+        public ServerService getService() {
             // Return this instance of LocalService so clients can call public methods
             return ServerService.this;
         }
@@ -331,6 +331,17 @@ public class ServerService extends PosService {
         return Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
+    public String getDeviceType(){
+        String type = android.os.Build.MODEL;
+        if( type.equals("TA2C-GT01") )
+            return "N1193";
+        else if( type.equals("SABRESD-MX6DQ"))
+            return "P140";
+        else if( type.equals("intel_cht"))
+            return "NP10";
+
+        return type;
+    }
 
     public void setSuite(int suite) {
 
@@ -433,4 +444,5 @@ public class ServerService extends PosService {
     public void initLED(int com) {
         showLedText(com, LED.CMD_INIT_TYPE, "", null, mHandler);
     }
+
 }

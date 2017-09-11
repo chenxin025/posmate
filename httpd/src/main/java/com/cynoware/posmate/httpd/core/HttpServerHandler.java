@@ -157,9 +157,10 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
 
     private void doReturnDeviceID( ChannelHandlerContext ctx, HttpRequest req ){
 
+        String devType = mServerService.getDeviceType();
         String devID = mServerService.getDeviceID();
 
-        String data = "{\"device_id\":\"" + devID + "\"}";
+        String data = "{\"device_type\":\"" + devType + "\",\"device_id\":\"" + devID + "\"}";
 
         response(ctx, req, CODE_OK, MSG_OK, data );
     }
