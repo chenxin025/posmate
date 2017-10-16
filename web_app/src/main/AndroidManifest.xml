@@ -27,7 +27,7 @@
         <activity
             android:name=".SplashActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,13 +39,15 @@
         <activity
             android:name=".WebViewActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
 
         <receiver android:name=".BootBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <service android:name="com.cynoware.printer.sdklib.service.PrinterService"></service>
 
     </application>
 

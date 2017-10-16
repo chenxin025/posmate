@@ -4,13 +4,19 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ClipData;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.IBinder;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +29,11 @@ import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.cynoware.printer.sdklib.callback.OnResultResponse;
+import com.cynoware.printer.sdklib.callback.OnSendResponse;
+import com.cynoware.printer.sdklib.service.PrinterService;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,6 +47,10 @@ public class WebViewActivity extends Activity {
     private final static int REQUEST_IMAGE_GALLERY = 1;
     static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri photoURI;
+
+    private ServiceConnection mConn = null;
+    private Intent mIntentConnectionPrinter;
+    private PrinterService mPrinterService;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,6 +122,8 @@ public class WebViewActivity extends Activity {
 
         if (url != null && !url.isEmpty())
             mWebView.loadUrl(url);
+
+        initPrinterService();
     }
 
 
@@ -174,6 +191,12 @@ public class WebViewActivity extends Activity {
             mWebView.goBack();
             return true;
         }
+
+        if (mConn != null) {
+            mPrinterService.closePrinter();
+            unbindService(mConn);
+        }
+
         return super.onKeyDown(keyCode, event);
     }
 
@@ -262,5 +285,62 @@ public class WebViewActivity extends Activity {
             mUploadMessage.onReceiveValue(results);
             mUploadMessage = null;
         }
+    }
+
+
+
+    private void initPrinterService() {
+        mConn = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                mPrinterService = ((PrinterService.MyBinder) iBinder).getService();
+                Log.i("test", "###########" + mPrinterService.isConnected());
+
+                mPrinterService.openPrintDevice(WebViewActivity.this, new OnResultResponse() {
+                    @Override
+                    public void onSuccess() {
+                        Toast.makeText(WebViewActivity.this, "已连接打印机", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailed() {
+                        Toast.makeText(WebViewActivity.this, "未连接打印机", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onRead(byte[] bytes) {
+
+                    }
+                }, new Handler());
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName componentName) {
+
+            }
+        };
+        mIntentConnectionPrinter = new Intent(this, PrinterService.class);
+        bindService(mIntentConnectionPrinter, mConn, Context.BIND_AUTO_CREATE);
+
+    }
+
+
+    void print( String text ) {
+        if( mPrinterService == null )
+            return;
+
+        mPrinterService.sendBytes(new OnSendResponse() {
+            @Override
+            public void onSuccess() {
+                Toast.makeText(WebViewActivity.this, "正在打印...", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailed() {
+                Toast.makeText(WebViewActivity.this, "打印失败", Toast.LENGTH_SHORT).show();
+            }
+
+        }, new Handler(), text, true);
+
     }
 }

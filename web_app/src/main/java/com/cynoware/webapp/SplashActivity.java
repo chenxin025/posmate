@@ -33,7 +33,9 @@ public class SplashActivity extends Activity {
     private SharedPreferences mPreference;
     private boolean mIsDevMode = false;
 
-    private String URL_TEST = "http://ceshigt.zuanno.cn";
+//    private String URL_TEST = "http://ceshigt.zuanno.cn";
+    //private String URL_TEST = "http://192.168.1.55:8080";
+    private String URL_TEST = "http://ceshiht.zuanno.cn/a";
     private String URL_PROD = "http://gt.zuanno.cn";
 
     private String mUrl;
