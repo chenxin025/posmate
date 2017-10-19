@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:text="@string/Card_Reader"
+        android:textColor="@color/title_text"
+        android:textSize="22sp" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/Channel_colon"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#6a6a6a" />
+    
+        <Spinner
+            android:id="@+id/spinnerCardReaderChannel"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" >
+
+        <Button
+            android:id="@+id/btnLoadKey"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_button"
+            android:text="@string/Load_Key"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="@dimen/common_button_text_size" />
+
+        <Button
+            android:id="@+id/btnStartCardReader"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/common_button"
+            android:text="@string/Start_Reading"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="@dimen/common_button_text_size" />
+
+        <Button
+            android:id="@+id/btnStopCardReader"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/common_button"
+            android:text="@string/Stop_Reading"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_button_text_size" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutReading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+
+        <TextView            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TIP_Reading_card"
+            android:textSize="18sp"
+            android:textColor="#FFBB33" />
+        
+        <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="8dp"/>
+        
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvCardMsg"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="8dp" >
+
+    </ListView>
+
+</LinearLayout>

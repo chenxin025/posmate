@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <string name="app_name">POSMateDevices</string>
+    
+    <!-- <string name="selectChannel">Channel</string>
+    <string name="productname">posmate</string>
+    <string name="boardtitle">Bluetooth Connector</string>
+    <string name="matetitle">USB Connector</string>
+    
+    <string name="printertitle">Printer</string>
+    <string name="ledtitle">LED</string>
+    <string name="scantitle">QR Scaner</string>
+    <string name="newlandtitle">Card Reader</string>
+    <string name="cashboxtitle">Cash Drawer</string>
+    
+    <string name="bluetoothname">PM907298</string>
+    <string name="bluetoothtitle">PM</string>
+    
+    <string name="btconnected">Bluetooth connect mode</string>
+    
+    <string name="usbconnected">USB connect mode</string>
+    
+    <string name="qrreader">QRCode Scan:</string>
+    <string name="notconnected">devices not connected</string>
+    <string name="leddevices">LED Test:</string>
+    <string name="printerdevices">Printer Test:</string>
+    <string name="carddevices">Card Test:</string>
+	<string name="toastexitmsg">Then press again, exit the application.</string>
+	<string name="selecttype">Please select type</string>
+	<string name="settingmsg">Please match the equipment</string>
+	
+	<string name="ykbtn">yanke</string>
+    <string name="jxonebtn">jingxin1</string>
+    <string name="jxtwobtn">jingxin2</string>
+    <string name="jxthreebtn">jingxin3</string>
+     -->
+    
+    <string name="Channel_colon">Channel:</string>
+    <string name="Device_colon">Device:</string>
+    <string name="Initialize">Initialize</string>
+    <string name="Show_Number">Show Number</string>
+    <string name="Show">Show</string>
+    <string name="Show_Special">Show Special</string>
+    <string name="Paired_Devices">Paired Devices</string>
+    <string name="New_Devices">New Devices</string>
+    <string name="Card_Reader">Card Reader</string>
+    <string name="Cash_Drawer">Cash Drawer</string>
+    <string name="Open">Open</string>
+    
+    <string name="LED">LED</string>
+    <string name="Start">Start</string>
+    <string name="QR_Scaner">QR Scaner</string>
+    <string name="Printer">Printer</string>
+    <string name="Stop">Stop</string>
+    <string name="Setting">Setting</string>   
+     
+    <string name="POS_Type">POS Type</string>
+    <string name="PosMate">PosMate</string>
+    <string name="NP10">NP10</string>
+    <string name="Connection_Channel">Connection Channel</string>
+    <string name="Card_Reader_Configuration">Card Reader Configuration</string>
+    <string name="Load_Key">Load Key</string>
+    <string name="Start_Reading">Start Reading</string>
+    <string name="Stop_Reading">Stop Reading</string>
+    <string name="TIP_Reading_card">Please swipe card or insert IC card...</string>
+    <string name="TIP_Press_To_Exit">Press again to exit</string>
+    <string name="TIP_Scaning">Scaning...</string>
+    <string name="TIP_Cancel_Scaning">Cancel scaning...</string>
+    <string name="Vendor_colon">Vendor:</string>
+    <string name="Custom_text">Cusyom text:</string>
+
+    <string name="Print">Print</string>
+    <string name="Barcode">Bar Code</string>
+
+    <string name="EnglishString">Printer testing program!\nTake it easy!</string>
+    <string name="KoreanString">테스트 프로그램 프린터!\n세계 이렇게 아름다운!</string>
+    <string name="JapaneseString">プリンタのテストプログラム!\n世界はとても素晴らしいです!</string>
+    <string name="ChineseString">打印機測試程式！\n世界如此美好！</string>
+
+
+    <string name="SYSTEM_BUSY">System busy, please waiting...</string>
+    <string name="PRINTING">Start printing...</string>
+    <string name="DOWNLOAD">Start downloading...</string>
+
+</resources>

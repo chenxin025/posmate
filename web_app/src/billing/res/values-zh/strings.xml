@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">门店助手</string>
+    <string name="take_photo">拍照</string>
+    <string name="use_gallery_photo">图库</string>
+</resources>

@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:text="@string/QR_Scaner"
+        android:textColor="@color/title_text"
+        android:textSize="22sp" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/Channel_colon"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#6a6a6a" />
+    
+        <Spinner
+            android:id="@+id/spinnerQRScannerChannel"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_button"
+            android:text="@string/Start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_button_text_size"  />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/common_button"
+            android:text="@string/Stop"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_button_text_size"  />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/layoutScaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tvTIPScaning"            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scaning..."
+            android:textSize="18sp"
+            android:textColor="#FFBB33" />
+        
+        <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="8dp"/>
+        
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvScanResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>
