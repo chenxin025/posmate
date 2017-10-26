@@ -3,13 +3,16 @@ package com.cynoware.webapp;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.Bitmap;
+import android.hardware.usb.UsbManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -31,6 +34,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.cynoware.printer.sdklib.bean.PrinterInfo;
 import com.cynoware.printer.sdklib.callback.OnResultResponse;
 import com.cynoware.printer.sdklib.callback.OnSendResponse;
 import com.cynoware.printer.sdklib.service.PrinterService;
@@ -51,6 +55,9 @@ public class WebViewActivity extends Activity {
     private ServiceConnection mConn = null;
     private Intent mIntentConnectionPrinter;
     private PrinterService mPrinterService;
+
+    private BroadcastReceiver mReceiver;
+    private IntentFilter mIntentFilter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,7 +133,41 @@ public class WebViewActivity extends Activity {
         if (AppApplication.getmInstance().getmAppChannel()
                 .equals(AppApplication.CHANNEL_COLLECT)) {
             initPrinterService();
+            initReceiver();
         }
+    }
+
+    private void  initReceiver(){
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+        mIntentFilter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (intent == null){
+                    return;
+                }
+                String action = intent.getAction();
+                Log.i("test","initReceiver============="+action);
+                switch (action){
+                    case UsbManager.ACTION_USB_DEVICE_ATTACHED:
+                        initPrinterService();
+                        break;
+
+                    case UsbManager.ACTION_USB_DEVICE_DETACHED:
+                        Toast.makeText(WebViewActivity.this, "打印机连接断开", Toast.LENGTH_SHORT).show();
+                        if (mConn != null && mPrinterService != null) {
+                            mPrinterService.closePrinter();
+                            unbindService(mConn);
+                            mConn = null;
+                            mPrinterService = null;
+                        }
+                        break;
+                }
+            }
+        };
+
+        registerReceiver(mReceiver,mIntentFilter);
     }
 
 
@@ -195,10 +236,10 @@ public class WebViewActivity extends Activity {
             return true;
         }
 
-        if (mConn != null && mPrinterService != null) {
-            mPrinterService.closePrinter();
-            unbindService(mConn);
-        }
+//        if (mConn != null && mPrinterService != null) {
+//            mPrinterService.closePrinter();
+//            unbindService(mConn);
+//        }
 
         return super.onKeyDown(keyCode, event);
     }
@@ -208,6 +249,17 @@ public class WebViewActivity extends Activity {
         super.onDestroy();
         mWebView.clearCache(true);
         mWebView.clearHistory();
+
+        if (AppApplication.getmInstance().getmAppChannel()
+                .equals(AppApplication.CHANNEL_COLLECT)) {
+            if (mConn != null && mPrinterService != null) {
+                mPrinterService.closePrinter();
+                unbindService(mConn);
+            }
+            if (null != mReceiver) {
+                unregisterReceiver(mReceiver);
+            }
+        }
     }
 
 
@@ -293,6 +345,16 @@ public class WebViewActivity extends Activity {
 
 
     private void initPrinterService() {
+
+        SharePreferenceUtil.getInstance().init(this);
+        int pid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_PID,0);
+        int vid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_VID,0);
+        PrinterInfo printerInfo = new PrinterInfo();
+        printerInfo.mProductId = pid;
+        printerInfo.mVendId = vid;
+        final PrinterInfo parapms = printerInfo;
+
+
         mConn = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -314,7 +376,7 @@ public class WebViewActivity extends Activity {
                     public void onRead(byte[] bytes) {
 
                     }
-                }, new Handler());
+                }, new Handler(),parapms);
             }
 
             @Override

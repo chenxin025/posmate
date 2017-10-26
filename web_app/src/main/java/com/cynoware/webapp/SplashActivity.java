@@ -44,6 +44,10 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (!checkIsConfigPrinter()){
+            finish();
+            return;
+        }
         mAppChannel = AppApplication.getmInstance().getmAppChannel();
         if (mAppChannel.equals(AppApplication.CHANNEL_BILLING)){
             URL_TEST = "http://ceshigt.zuanno.cn";
@@ -106,6 +110,19 @@ public class SplashActivity extends Activity {
             startWebViewActivity(mUrl);
         }
     };
+
+    private boolean checkIsConfigPrinter() {
+        boolean isConfig = true;
+        SharePreferenceUtil.getInstance().init(this);
+        int pid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_PID, 0);
+        int vid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_VID, 0);
+        if (pid == 0 || vid == 0) {
+            Toast.makeText(this, "请进入打印配置app进行配置PID和VID", Toast.LENGTH_SHORT).show();
+            isConfig = false;
+        }
+        return isConfig;
+    }
+
 
 
     public void loadDevMode() {
