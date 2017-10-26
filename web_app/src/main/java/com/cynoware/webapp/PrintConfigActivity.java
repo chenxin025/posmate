@@ -27,6 +27,7 @@ public class PrintConfigActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityCollector.addActivity(this,PrintConfigActivity.class);
         setContentView(R.layout.printer_config);
         SharePreferenceUtil.getInstance().init(this);
         init();
@@ -74,5 +75,11 @@ public class PrintConfigActivity extends Activity {
         SharePreferenceUtil.getInstance().putInt(PrintConstants.KEY_SP_PID,Integer.parseInt(strPid));
         SharePreferenceUtil.getInstance().putInt(PrintConstants.KEY_SP_VID,Integer.parseInt(strVid));
         Toast.makeText(this,"保存成功",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 }

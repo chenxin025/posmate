@@ -60,6 +60,7 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ActivityCollector.addActivity(this,SplashActivity.class);
         if (!checkIsConfigPrinter()){
             finish();
             return;
@@ -160,6 +161,7 @@ public class SplashActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 
 
