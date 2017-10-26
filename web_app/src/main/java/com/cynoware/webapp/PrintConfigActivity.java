@@ -29,6 +29,9 @@ public class PrintConfigActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ActivityCollector.addActivity(this,PrintConfigActivity.class);
+        SharePreferenceUtil.getInstance().init(this);
+
         myUsbManager = (UsbManager) getSystemService(USB_SERVICE);
 
         setContentView(R.layout.activity_printer_config);
@@ -139,5 +142,11 @@ public class PrintConfigActivity extends Activity {
         SharePreferenceUtil.getInstance().putInt(PrintConstants.KEY_SP_PID, mDevice.getProductId());
         SharePreferenceUtil.getInstance().putInt(PrintConstants.KEY_SP_VID, mDevice.getVendorId());
         Toast.makeText(this, "设置成功", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 }

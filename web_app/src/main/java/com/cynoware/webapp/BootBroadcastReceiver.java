@@ -14,9 +14,15 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
 
         if (intent.getAction().equals(ACTION)) {
             Log.i( "BootUpBroadcastReceiver", "Received BOOT_COMPLETED");
-            Intent mIntent = new Intent(context, SplashActivity.class);
-            mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(mIntent);
+            boolean isExist = false;
+            isExist = ActivityCollector.isActivityExist(SplashActivity.class);
+            isExist = ActivityCollector.isActivityExist(WebViewActivity.class);
+            if (!isExist){
+                Intent mIntent = new Intent(context, SplashActivity.class);
+                mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(mIntent);
+            }
+
         }
     }
 }
