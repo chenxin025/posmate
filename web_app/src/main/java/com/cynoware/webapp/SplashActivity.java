@@ -7,11 +7,8 @@
 package com.cynoware.webapp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -29,21 +26,34 @@ public class SplashActivity extends Activity {
 
     private boolean mIsServerStarted = false;
     private TextView tvDev;
+    private TextView tvLogo;
 
     private SharedPreferences mPreference;
     private boolean mIsDevMode = false;
 
-    private String URL_TEST = "http://ceshigt.zuanno.cn";
-    private String URL_PROD = "http://gt.zuanno.cn";
+    private String URL_TEST = null;
+    private String URL_PROD = null;
 
     private String mUrl;
     private int mClickCount = 0;
+    private  String mAppChannel = null;
 
     private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mAppChannel = AppApplication.getmInstance().getmAppChannel();
+        if (mAppChannel.equals(AppApplication.CHANNEL_BILLING)){
+            URL_TEST = "http://ceshigt.zuanno.cn";
+            URL_PROD = "http://gt.zuanno.cn";
+        }else if (mAppChannel.equals(AppApplication.CHANNEL_COLLECT)){
+            URL_TEST = "http://ceshiht.zuanno.cn/a";
+            URL_PROD = "http://ht.zuanno.cn/a";
+        }
+
+
 
         mPreference = getSharedPreferences("setting", 0);
 
@@ -55,12 +65,14 @@ public class SplashActivity extends Activity {
 
         setContentView(R.layout.activity_splash);
 
-        TextView tvLogo = (TextView) findViewById(R.id.tvLogo);
+        tvLogo = (TextView) findViewById(R.id.tvLogo);
         TextView tvVersion = (TextView) findViewById(R.id.tvVersion);
         tvDev = (TextView) findViewById(R.id.tvDev);
 
 
-        tvVersion.setText(getAppVersionName(this));
+
+        tvVersion.setText(Utils.getAppVersionName(this));
+        tvLogo.setText(Utils.getAppName(this));
 
         tvLogo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,22 +123,6 @@ public class SplashActivity extends Activity {
         mUrl = mIsDevMode ? URL_TEST : URL_PROD;
         tvDev.setVisibility(mIsDevMode ? View.VISIBLE : View.GONE);
     }
-
-    public static String getAppVersionName(Context context) {
-        try {
-            PackageManager manager = context.getPackageManager();
-            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
-            if (null != info) {
-                return info.versionName;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-
-        return null;
-    }
-
 
     @Override
     protected void onDestroy() {

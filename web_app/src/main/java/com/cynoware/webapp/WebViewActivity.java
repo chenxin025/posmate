@@ -123,7 +123,10 @@ public class WebViewActivity extends Activity {
         if (url != null && !url.isEmpty())
             mWebView.loadUrl(url);
 
-        initPrinterService();
+        if (AppApplication.getmInstance().getmAppChannel()
+                .equals(AppApplication.CHANNEL_COLLECT)) {
+            initPrinterService();
+        }
     }
 
 
@@ -192,7 +195,7 @@ public class WebViewActivity extends Activity {
             return true;
         }
 
-        if (mConn != null) {
+        if (mConn != null && mPrinterService != null) {
             mPrinterService.closePrinter();
             unbindService(mConn);
         }

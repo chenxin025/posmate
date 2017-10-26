@@ -6,8 +6,8 @@ build/
 app/build/
 sdk/build/
 sdk/.externalNativeBuild/
+sdk/.externalNativeBuild/ndkBuild/
 *.aar
 *.iml
-*.jks
 *.apk
 google-services.json

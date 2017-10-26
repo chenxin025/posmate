@@ -7,17 +7,13 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.cynoware.webapp.RoundImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_launcher"/>
+
 
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="智慧珠宝系统"
-        android:visibility="gone"
         android:textSize="30sp" />
 
     <TextView
@@ -35,7 +31,7 @@
             android:id="@+id/tvVersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tvDev"
@@ -49,7 +45,7 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:visibility="gone"
+        android:visibility="visible"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
