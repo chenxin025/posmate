@@ -40,11 +40,32 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".PrintConfigActivity"
+            android:label="打印配置"
+            android:icon="@drawable/ic_launcher"
+            android:configChanges="orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".WebViewActivity"
             android:configChanges="orientation"
-            android:screenOrientation="landscape" />
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_DETACHED" />
+            </intent-filter>
+            </activity>
 
         <receiver android:name=".BootBroadcastReceiver" >
             <intent-filter>
