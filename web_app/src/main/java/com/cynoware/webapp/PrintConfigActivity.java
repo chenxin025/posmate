@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,11 +25,14 @@ public class PrintConfigActivity extends Activity {
     private UsbDevice mDevice = null;
     private TextView mTvName, mTvDetail;
     private Button mBtnOK;
+    private TextView mTvCurrentConfig = null;
+    private String mStrCurrentConfig = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mStrCurrentConfig = null;
         ActivityCollector.addActivity(this,PrintConfigActivity.class);
         SharePreferenceUtil.getInstance().init(this);
 
@@ -38,6 +42,7 @@ public class PrintConfigActivity extends Activity {
 
         mTvName = (TextView) findViewById(R.id.tvName);
         mTvDetail = (TextView) findViewById(R.id.tvDetail);
+        mTvCurrentConfig = (TextView)findViewById(R.id.key_current_config);
 
         mBtnOK = (Button) findViewById(R.id.btnOK);
         mBtnOK.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +66,13 @@ public class PrintConfigActivity extends Activity {
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
 
         registerReceiver(mBroadcastReceiver, filter);
+
+        mStrCurrentConfig = SharePreferenceUtil.getInstance().getString(PrintConstants.KEY_SP_CURRENT,null);
+        if (TextUtils.isEmpty(mStrCurrentConfig)){
+            mTvCurrentConfig.setVisibility(View.GONE);
+        }else{
+            mTvCurrentConfig.setText(mStrCurrentConfig);
+        }
     }
 
 
@@ -148,6 +160,7 @@ public class PrintConfigActivity extends Activity {
             text += " VID:" + mDevice.getVendorId();
             text += " PID:" + mDevice.getProductId();
 
+            mStrCurrentConfig = text;
             mTvDetail.setText(text);
             mTvDetail.setVisibility(View.VISIBLE);
             mBtnOK.setVisibility(View.VISIBLE);
@@ -162,6 +175,10 @@ public class PrintConfigActivity extends Activity {
 
         SharePreferenceUtil.getInstance().putInt(PrintConstants.KEY_SP_PID, mDevice.getProductId());
         SharePreferenceUtil.getInstance().putInt(PrintConstants.KEY_SP_VID, mDevice.getVendorId());
+        String str = "当前配置: "+mStrCurrentConfig;
+        SharePreferenceUtil.getInstance().putString(PrintConstants.KEY_SP_CURRENT,str);
+        Log.i("test","=====mStrCurrentConfig======"+mStrCurrentConfig);
+
         Toast.makeText(this, "设置成功", Toast.LENGTH_SHORT).show();
     }
 
