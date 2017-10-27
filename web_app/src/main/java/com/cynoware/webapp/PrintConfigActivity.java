@@ -84,6 +84,20 @@ public class PrintConfigActivity extends Activity {
         return count;
     }
 
+    private UsbDevice getCurrentDev(){
+        HashMap<String, UsbDevice> deviceList = myUsbManager.getDeviceList();
+        if (!deviceList.isEmpty()) {
+            for (UsbDevice device : deviceList.values()) {
+                if (device.getProductId() == 1828 &&
+                        device.getVendorId() == 3034){
+                    continue;
+                }
+                return device;
+            }
+        }
+        return null;
+    }
+
 
     private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -100,10 +114,12 @@ public class PrintConfigActivity extends Activity {
                 if (device != null) {
                     Log.i(TAG, "USB Detached - " + device);
                     if (mDevice != null && device != null) {
-                        if (device.getDeviceName().equals(mDevice.getDeviceName())) {
-                            mDevice = null;
-                            showDevice();
-                        }
+//                        if (device.getDeviceName().equals(mDevice.getDeviceName())) {
+//                            mDevice = null;
+//                            showDevice();
+//                        }
+                        mDevice = getCurrentDev();
+                        showDevice();
                     }
 
                 }
