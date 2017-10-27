@@ -45,11 +45,13 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         ActivityCollector.addActivity(this,SplashActivity.class);
-        if (!checkIsConfigPrinter()){
-            finish();
-            return;
-        }
         mAppChannel = AppApplication.getmInstance().getmAppChannel();
+        if (mAppChannel.equals(AppApplication.CHANNEL_COLLECT)) {
+            if (!checkIsConfigPrinter()) {
+                finish();
+                return;
+            }
+        }
         if (mAppChannel.equals(AppApplication.CHANNEL_BILLING)){
             URL_TEST = "http://ceshigt.zuanno.cn";
             URL_PROD = "http://gt.zuanno.cn";
