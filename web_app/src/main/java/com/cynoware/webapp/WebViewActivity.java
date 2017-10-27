@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.Bitmap;
+import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -152,16 +153,36 @@ public class WebViewActivity extends Activity {
                 Log.i("test","initReceiver============="+action);
                 switch (action){
                     case UsbManager.ACTION_USB_DEVICE_ATTACHED:
-                        initPrinterService();
+
+                        UsbDevice device = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+                        int currentPid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_PID,0);
+                        int currentVid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_VID,0);
+                       // Log.i("test","currentPid ="+currentPid);
+                       // Log.i("test","currentVid="+currentVid);
+
+                        //Log.i("test","dev   Vid="+device.getVendorId());
+                        //Log.i("test","dev   Vid="+device.getVendorId());
+                        if (currentPid == device.getProductId() && currentVid == device.getVendorId()){
+                            Log.i("test","====initPrinterService====");
+                            initPrinterService();
+                        }
+
+
                         break;
 
                     case UsbManager.ACTION_USB_DEVICE_DETACHED:
-                        Toast.makeText(WebViewActivity.this, "打印机连接断开", Toast.LENGTH_SHORT).show();
-                        if (mConn != null && mPrinterService != null) {
-                            mPrinterService.closePrinter();
-                            unbindService(mConn);
-                            mConn = null;
-                            mPrinterService = null;
+                        UsbDevice device1 = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+                        int Pid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_PID,0);
+                        int Vid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_VID,0);
+                        if (Pid == device1.getProductId() && Vid == device1.getVendorId()) {
+
+                            Toast.makeText(WebViewActivity.this, "打印机连接断开", Toast.LENGTH_SHORT).show();
+                            if (mConn != null && mPrinterService != null) {
+                                mPrinterService.closePrinter();
+                                unbindService(mConn);
+                                mConn = null;
+                                mPrinterService = null;
+                            }
                         }
                         break;
                 }
@@ -345,6 +366,52 @@ public class WebViewActivity extends Activity {
     }
 
 
+    private void initPrinterAttach() {
+
+        SharePreferenceUtil.getInstance().init(this);
+        int pid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_PID,0);
+        int vid = SharePreferenceUtil.getInstance().getInt(PrintConstants.KEY_SP_VID,0);
+        PrinterInfo printerInfo = new PrinterInfo();
+        printerInfo.mProductId = pid;
+        printerInfo.mVendId = vid;
+        final PrinterInfo parapms = printerInfo;
+
+
+
+        mConn = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                mPrinterService = ((PrinterService.MyBinder) iBinder).getService();
+                Log.i("test", "###########" + mPrinterService.isConnected());
+
+                mPrinterService.openPrintDevice(WebViewActivity.this, new OnResultResponse() {
+                    @Override
+                    public void onSuccess() {
+                        Toast.makeText(WebViewActivity.this, "已连接打印机", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailed() {
+                        Toast.makeText(WebViewActivity.this, "未连接打印机", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onRead(byte[] bytes) {
+
+                    }
+                }, new Handler(),parapms);
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName componentName) {
+
+            }
+        };
+        mIntentConnectionPrinter = new Intent(this, PrinterService.class);
+        bindService(mIntentConnectionPrinter, mConn, Context.BIND_AUTO_CREATE);
+
+    }
+
 
     private void initPrinterService() {
 
@@ -355,6 +422,7 @@ public class WebViewActivity extends Activity {
         printerInfo.mProductId = pid;
         printerInfo.mVendId = vid;
         final PrinterInfo parapms = printerInfo;
+
 
 
         mConn = new ServiceConnection() {

@@ -74,8 +74,8 @@ android {
         }
         collectapp {
             applicationId "com.cynowate.webapp.collect"
-            versionCode 110
-            versionName "1.1.0"
+            versionCode 120
+            versionName "1.2.0"
             manifestPlaceholders = [CYNO_CHANNEL_VALUE: "collectapp"]
         }
         face {
