@@ -44,6 +44,7 @@ public class PrintConfigActivity extends Activity {
             @Override
             public void onClick(View v) {
                 writeConfigs();
+                finish();
             }
         });
 
@@ -71,6 +72,10 @@ public class PrintConfigActivity extends Activity {
         HashMap<String, UsbDevice> deviceList = myUsbManager.getDeviceList();
         if (!deviceList.isEmpty()) {
             for (UsbDevice device : deviceList.values()) {
+                if (device.getProductId() == 1828 &&
+                        device.getVendorId() == 3034){
+                    continue;
+                }
                 mDevice = device;
                 count++;
             }

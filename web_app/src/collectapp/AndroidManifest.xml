@@ -44,6 +44,7 @@
         <activity
             android:name=".PrintConfigActivity"
             android:label="打印配置"
+            android:launchMode="singleTask"
             android:icon="@drawable/ic_launcher"
             android:configChanges="orientation"
             android:screenOrientation="landscape">
