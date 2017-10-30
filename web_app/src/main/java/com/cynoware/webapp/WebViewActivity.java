@@ -28,6 +28,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
@@ -85,6 +86,8 @@ public class WebViewActivity extends Activity {
         mWebView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
                 activity.setProgress(progress * 1000);
+//                super.onProgressChanged(view, progress);
+//                view.requestFocus();
             }
 
             @Override
@@ -103,6 +106,11 @@ public class WebViewActivity extends Activity {
         mWebView.getSettings().setAppCachePath(appCachePath);
         mWebView.getSettings().setAllowFileAccess(true);
         mWebView.getSettings().setAppCacheEnabled(true);
+
+        mWebView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        mWebView.getSettings().setUseWideViewPort(true);
+
+        mWebView.getSettings().setBuiltInZoomControls(false);
 
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
