@@ -1,1 +1,1 @@
-include ':app', ':sdk', ':httpd', ':fwupdater', ':dualtouch', ':web_app', ':'
+include ':app', ':sdk', ':httpd', ':fwupdater', ':dualtouch', ':web_app', ':netcds', ':'

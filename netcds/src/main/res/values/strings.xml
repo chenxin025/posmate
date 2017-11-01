@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">netCDS</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="take_photo">Take Photo</string>
+    <string name="use_gallery_photo">Use Gallery Photo</string>
+
+    <string name="server_not_running"> Server is not running</string>
+    <string name="server_is_running"> Server is running</string>
+    <string name="server_started"> Server started!</string>
+    <string name="server_stopped">HTTP Server stopped!</string>
+
+</resources>
